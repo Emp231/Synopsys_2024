@@ -18,5 +18,7 @@ empty_array = np.empty((9, 9))
 empty_array[4][4] = water_central
 print(empty_array)
 
-
+with open('DEM.tif', 'r') as file:
+    content = file.read()
+    print(content)
 
