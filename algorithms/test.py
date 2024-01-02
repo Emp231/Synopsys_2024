@@ -34,27 +34,14 @@ def end_sim(water_height):
     return True
 
 def is_ponding(water_height, elevation_height, x, y):
-    right_neighbor_elevation_height = -1
-    left_neighbor_elevation_height = -1
-    up_neighbor_elevation_height = -1
-    down_neighbor_elevation_height = -1
+    right_neighbor_elevation_height = find_neighbor_elevation_height(x,y,"right", elevation_height)
+    left_neighbor_elevation_height = find_neighbor_elevation_height(x,y,"left", elevation_height)
+    up_neighbor_elevation_height = find_neighbor_elevation_height(x,y,"up", elevation_height)
+    down_neighbor_elevation_height = find_neighbor_elevation_height(x,y,"down", elevation_height)
     num = 0
 
     current_cell_elevation_height = elevation_height[x, y]
-
-    if find_neighbor(x, y, "right", elevation_height) != -1:
-        right_neighbor_elevation_height = elevation_height[find_neighbor(x, y, "right", elevation_height), y]
-
-    if find_neighbor(x, y, "left", elevation_height) != -1:
-        left_neighbor_elevation_height = elevation_height[find_neighbor(x, y, "left", elevation_height), y]
-
-    if find_neighbor(x, y, "up", elevation_height) != -1:
-        up_neighbor_elevation_height = elevation_height[x, find_neighbor(x, y, "up", elevation_height)]
-
-    if find_neighbor(x, y, "down", elevation_height) != -1:
-        down_neighbor_elevation_height = elevation_height[x, find_neighbor(x, y, "down", elevation_height)]
-
-
+    
     if right_neighbor_elevation_height != -1 and current_cell_elevation_height < right_neighbor_elevation_height:
         num += 1
     if left_neighbor_elevation_height != -1 and current_cell_elevation_height < left_neighbor_elevation_height:
@@ -63,42 +50,69 @@ def is_ponding(water_height, elevation_height, x, y):
         num += 1
     if down_neighbor_elevation_height != -1 and current_cell_elevation_height < down_neighbor_elevation_height:
         num += 1
-
-
-    if num == 4:
-        temp_array = [height for height in [right_neighbor_elevation_height, left_neighbor_elevation_height, up_neighbor_elevation_height, down_neighbor_elevation_height] if height != -1]
-        min_height = min(temp_array)
-        difference = min_height - elevation_height[x,y]
-        elevation_height[x,y] = min_height
-        water_height[x,y] -= difference
-  
     
-def find_neighbor(x,y, direction, elevation_height_height):
-    array_x = np.size(water_height, 1)
-    array_y = np.size(water_height, 0)
+    if num == 4:
+        return True
+    else:
+        return False
+    
+def is_ponding_action(water_height, elevation_height, x, y):
+    right_neighbor_elevation_height = find_neighbor_elevation_height(x,y,"right", elevation_height)
+    left_neighbor_elevation_height = find_neighbor_elevation_height(x,y,"left", elevation_height)
+    up_neighbor_elevation_height = find_neighbor_elevation_height(x,y,"up", elevation_height)
+    down_neighbor_elevation_height = find_neighbor_elevation_height(x,y,"down", elevation_height)
+    current_cell_elevation_height = elevation_height[x,y]
+    min_value = min(value for value in [right_neighbor_elevation_height, left_neighbor_elevation_height, up_neighbor_elevation_height, down_neighbor_elevation_height] if value != -1)
+    difference = min_value - current_cell_elevation_height
+    cell_EV = water_height[x,y]
+
+    if difference > cell_EV:
+        elevation_height[x,y] += cell_EV
+        water_height[x,y] = 0
+    else:
+        elevation_height[x,y] += difference
+        water_height[x,y] -= difference
+
+
+
+
+
+def find_neighbor(x,y, direction, elevation_height):
+    array_y = np.size(elevation_height, 1)
+    array_x = np.size(elevation_height, 0)
 
     if direction == "right":
-        if x < array_x - 1:
-            return x+1
+        if y < array_y - 1:
+            return y+1
         else:
             return -1
     elif direction == "left":
-        if x > 0:
-            return x-1
-        else:
-            return -1
-    elif direction == "up":
         if y > 0:
             return y-1
         else:
             return -1
+    elif direction == "up":
+        if x > 0:
+            return x-1
+        else:
+            return -1
     elif direction == "down":
-        if y < array_y - 1:
+        if x < array_x - 1:
             return x+1
         else:
             return -1
     
-    
+def find_neighbor_elevation_height(x,y, direction, elevation_height):
+    if direction == "right" or direction == "left":
+        if find_neighbor(x,y,direction,elevation_height) != -1:
+            return elevation_height[x, find_neighbor(x,y,direction,elevation_height)]
+        else:
+            return -1
+    elif direction == "up" or direction == "down":
+        if find_neighbor(x,y,direction,elevation_height) != -1: 
+          return elevation_height[find_neighbor(x,y,direction,elevation_height), y]
+        else:
+            return -1
 
 
 elevation_height = np.array([[2540, 2548, 2525, 2530, 2530, 2534, 2512, 2522, 2538], [2543, 2522, 2530, 2530, 2521, 2520, 2527, 2509, 2519],
@@ -107,4 +121,7 @@ elevation_height = np.array([[2540, 2548, 2525, 2530, 2530, 2534, 2512, 2522, 25
                              [2529, 2500, 2533, 2506, 2549, 2523, 2546, 2509, 2514], [2513, 2508, 2518, 2503, 2526, 2508, 2530, 2541, 2511],
                              [2539, 2549, 2506, 2541, 2507, 2522, 2503, 2543, 2547]])
 water_height = np.zeros((9,9))
-water_height[8,4] = 35
+water_height[6, 7] = 35
+
+if is_ponding(water_height, elevation_height, 6,7):
+    is_ponding_action(water_height, elevation_height, 6,7)
