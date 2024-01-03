@@ -1,0 +1,5 @@
+{
+    "python.analysis.extraPaths": [
+        "./gdal-3.8.1/gdal-3.8.1/swig/python"
+    ]
+}
