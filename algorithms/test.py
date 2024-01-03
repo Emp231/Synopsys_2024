@@ -18,10 +18,7 @@ def calc_cell_height(x, y):
   return elevation_height[x,y] + water_height[x,y]
 
 def is_do_nothing(water_height, x, y):
-    if water_height[x,y] == 0:
-        return True
-    
-    return False
+    return water_height[x,y] == 0
 
 def end_sim(water_height):
     array_x = np.size(water_height, 1)
@@ -126,7 +123,57 @@ def is_increasing_level(water_height, elevation_height, x, y):
         
 # precondition is that the water_height of the central cell will always be greater than the increment constant
 def is_increasing_level_action(water_height, elevation_height, x, y, increment_constant):
-    print(get_equal_neighbors_dirs(x,y,elevation_height))
+    equal_neighbors = get_equal_neighbors_dirs(x, y, elevation_height)
+    elevation_height[x,y] += increment_constant 
+    water_height[x,y] -= increment_constant
+
+    split_val = water_height[x,y] / equal_neighbors.size
+    
+    if "right" in equal_neighbors:
+        water_height[x, find_neighbor(x,y,"right", elevation_height)] = split_val
+        water_height[x,y] -= split_val
+    if "left" in equal_neighbors:
+        water_height[x, find_neighbor(x,y,"left", elevation_height)] = split_val
+        water_height[x,y] -= split_val
+    if "up" in equal_neighbors:
+        water_height[find_neighbor(x,y,"up", elevation_height), y] = split_val
+        water_height[x,y] -= split_val
+    if "down" in equal_neighbors:
+        water_height[find_neighbor(x,y,"down", elevation_height), y] = split_val
+        water_height[x,y] -= split_val
+
+# i = 1 is northern cell
+# i = 2 is eastern cell
+# i = 3 is southern cell
+# i = 4 is western cell
+def is_partitioning_action(water_height, elevation_height, x, y):
+    right_neighbor_elevation_height = find_neighbor_elevation_height(x,y,"right", elevation_height)
+    left_neighbor_elevation_height = find_neighbor_elevation_height(x,y,"left", elevation_height)
+    up_neighbor_elevation_height = find_neighbor_elevation_height(x,y,"up", elevation_height)
+    down_neighbor_elevation_height = find_neighbor_elevation_height(x,y,"down", elevation_height)
+    this_elevation_height = elevation_height[x,y]
+
+    a = 1
+    b = 1
+
+    increased_height = a * water_height[x,y]^b
+
+        
+    if right_neighbor_elevation_height < this_elevation_height:
+        water_height[x, find_neighbor(x,y,"right", elevation_height)] = max(0, elevation_height[x,y] + increased_height - elevation_height[x, find_neighbor(x,y,"right", elevation_height)])
+    
+    if left_neighbor_elevation_height < this_elevation_height:
+        water_height[x, find_neighbor(x,y,"left", elevation_height)] = max(0, elevation_height[x,y] + increased_height - elevation_height[x, find_neighbor(x,y,"left", elevation_height)])
+
+    if up_neighbor_elevation_height < this_elevation_height:
+        water_height[find_neighbor(x,y,"up", elevation_height), x] = max(0, elevation_height[x,y] + increased_height - elevation_height[find_neighbor(x,y,"up", elevation_height), y])
+
+    if down_neighbor_elevation_height < this_elevation_height:
+        water_height[find_neighbor(x,y,"down", elevation_height), x] = max(0, elevation_height[x,y] + increased_height - elevation_height[find_neighbor(x,y,"down", elevation_height), y])
+
+    
+
+
 
 def find_neighbor(x,y, direction, elevation_height):
     array_y = np.size(elevation_height, 1)
@@ -211,6 +258,24 @@ if is_ponding(water_height, elevation_height, 6,7):
 if is_spreading(water_height, elevation_height, 2, 1):
     is_spreading_action(water_height, elevation_height, 2, 1)
 """
+
+"""
 if is_increasing_level(water_height, elevation_height, 7, 1):
     #print(get_equal_neighbors_dirs(7,1,elevation_height))
     is_increasing_level_action(water_height, elevation_height, 7, 1, increment_constant)
+"""
+
+x = 1
+y = 2
+"""
+if is_do_nothing(water_height, x, y):
+    print(0)
+elif is_ponding(water_height, elevation_height, x, y):
+    print(1)
+elif is_spreading(water_height, elevation_height, x, y):
+    print(2)
+elif is_increasing_level(water_height, elevation_height, x, y):
+    print(3)
+else:
+    print(4)
+"""
