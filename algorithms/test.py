@@ -13,6 +13,10 @@
 
 # flood starts from [8][4] and is 35 feet
 import numpy as np
+from conversion import tif_to_asc
+
+input_tif = "" # Directory of TIF file you want to convert
+output_asc = "" # Directory of ASC file you want to store data in
 
 def calc_cell_height(x, y):
   return elevation_height[x,y] + water_height[x,y]
@@ -235,6 +239,10 @@ def get_equal_neighbors_dirs(x,y,elevation_height):
 
     return equal_values_array
 
+''' # Use when want to read data from user
+def get_elevation_height(input_tif, output_asc):
+    elevation_height = tif_to_asc(input_tif, output_asc)
+'''
 
 elevation_height = np.array([[2540, 2548, 2525, 2530, 2530, 2534, 2512, 2522, 2538], 
                              [2543, 2533, 2530, 2530, 2521, 2520, 2527, 2509, 2519],
