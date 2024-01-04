@@ -1,30 +1,15 @@
-from osgeo import gdal
+import subprocess
 
 def tif_to_asc(input_tif, output_asc):
-    ds = gdal.Open(input_tif)
-    band = ds.GetRasterBand(1)
-    data = band.ReadAsArray()
-    geotransform = ds.GetGeoTransform()
-    projection = ds.GetProjection()
-
-    with open(output_asc, 'w') as asc_file:
-        asc_file.write("NCOLS {}\n".format(ds.RasterXSize))
-        asc_file.write("NROWS {}\n".format(ds.RasterYSize))
-        asc_file.write("XLLCORNER {}\n".format(geotransform[0]))
-        asc_file.write("YLLCORNER {}\n".format(geotransform[3] + ds.RasterYSize * geotransform[5]))
-        asc_file.write("CELLSIZE {}\n".format(abs(geotransform[1])))
-        asc_file.write("NODATA_VALUE -9999\n")
-
-        # Write the raster data
-        for row in data:
-            for value in row:
-                asc_file.write("{} ".format(value))
-            asc_file.write("\n")
-
+    # Run gdal_translate command
+    gdal_translate_path = "" #Path to gdal_translate
+    command = [gdal_translate_path, '-of', 'AAIGrid', input_tif, output_asc]
+    subprocess.run(command)
 
     print("Conversion completed.")
 
-input_tif = "" # Add directory of TIF file
-output_asc = "file.asc" # Add directory where you want to store ASC file
+# Example usage
+input_tif = "" # Directory of TIF file you want to convert
+output_asc = "" # Directory of ASC file you want to store data in
 tif_to_asc(input_tif, output_asc)
 
