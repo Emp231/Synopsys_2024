@@ -29,7 +29,6 @@ if geotransform:
 
 # flood starts from [8][4] and is 35 feet
 import numpy as np
-import math
 
 def calc_cell_height(x, y):
   return elevation_height[x,y] + water_height[x,y]
