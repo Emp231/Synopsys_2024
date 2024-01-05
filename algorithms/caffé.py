@@ -29,12 +29,15 @@ if geotransform:
 
 # flood starts from [8][4] and is 35 feet
 import numpy as np
+import math
+
+#water_height is EV
 
 def calc_cell_height(x, y):
   return elevation_height[x,y] + water_height[x,y]
 
 def is_do_nothing(water_height, x, y):
-    return water_height[x,y] == 0
+    return water_height[x,y] == 0 # EV is not always water height! We need to figure out how to represent EV!
 
 def end_sim(water_height):
     array_x = np.size(water_height, 1)
@@ -51,7 +54,19 @@ def is_ponding(water_height, elevation_height, x, y):
     left_neighbor_elevation_height = find_neighbor_elevation_height(x,y,"left", elevation_height)
     up_neighbor_elevation_height = find_neighbor_elevation_height(x,y,"up", elevation_height)
     down_neighbor_elevation_height = find_neighbor_elevation_height(x,y,"down", elevation_height)
+
     num = 0
+
+    num_sides = 0
+
+    if right_neighbor_elevation_height == -1:
+        num_sides += 1
+    if left_neighbor_elevation_height == -1:
+        num_sides += 1
+    if up_neighbor_elevation_height == -1:
+        num_sides += 1
+    if down_neighbor_elevation_height == -1:
+        num_sides += 1
 
     current_cell_elevation_height = elevation_height[x, y]
     
@@ -64,7 +79,7 @@ def is_ponding(water_height, elevation_height, x, y):
     if down_neighbor_elevation_height != -1 and current_cell_elevation_height < down_neighbor_elevation_height:
         num += 1
     
-    if num == 4:
+    if num == (4-num_sides):
         return True
     else:
         return False
@@ -93,11 +108,10 @@ def is_spreading(water_height, elevation_height, x, y):
     up_neighbor_elevation_height = find_neighbor_elevation_height(x,y,"up", elevation_height)
     down_neighbor_elevation_height = find_neighbor_elevation_height(x,y,"down", elevation_height)
 
-    
-    if right_neighbor_elevation_height == left_neighbor_elevation_height == up_neighbor_elevation_height == down_neighbor_elevation_height:
-        return True
-    else:
-        return False
+    existing_values = [value for value in (right_neighbor_elevation_height, left_neighbor_elevation_height, up_neighbor_elevation_height, down_neighbor_elevation_height) if value != -1]
+
+
+    return np.all(existing_values == existing_values[0])
     
 def is_spreading_action(water_height, elevation_height, x, y):
     split = water_height[x,y] / 5
@@ -246,6 +260,18 @@ def find_neighbor_elevation_height(x,y, direction, elevation_height):
     elif direction == "up" or direction == "down":
         if find_neighbor(x,y,direction,elevation_height) != -1: 
           return elevation_height[find_neighbor(x,y,direction,elevation_height), y]
+        else:
+            return -1
+        
+def find_neighbor_water_height(x,y, direction, water_height):
+    if direction == "right" or direction == "left":
+        if find_neighbor(x,y,direction,water_height) != -1:
+            return water_height[x, find_neighbor(x,y,direction,water_height)]
+        else:
+            return -1
+    elif direction == "up" or direction == "down":
+        if find_neighbor(x,y,direction,water_height) != -1: 
+          return water_height[find_neighbor(x,y,direction,water_height), y]
         else:
             return -1
         
