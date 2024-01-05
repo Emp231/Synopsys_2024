@@ -29,6 +29,7 @@ if geotransform:
 
 # flood starts from [8][4] and is 35 feet
 import numpy as np
+import math
 
 def calc_cell_height(x, y):
   return elevation_height[x,y] + water_height[x,y]
@@ -273,6 +274,35 @@ def get_equal_neighbors_dirs(x,y,elevation_height):
     return equal_values_array
 
 
+def haversine_distance(lat1, lon1, lat2, lon2):
+    # Radius of the Earth in kilometers
+    R = 6371.0
+    
+    # Convert latitude and longitude from degrees to radians
+    lat1, lon1, lat2, lon2 = map(math.radians, [lat1, lon1, lat2, lon2])
+    
+    # Differences in coordinates
+    dlat = lat2 - lat1
+    dlon = lon2 - lon1
+    
+    # Haversine formula
+    a = math.sin(dlat / 2)**2 + math.cos(lat1) * math.cos(lat2) * math.sin(dlon / 2)**2
+    c = 2 * math.atan2(math.sqrt(a), math.sqrt(1 - a))
+    distance = R * c
+    
+    return distance
+
+def calc_width(north_lat, south_lat, east_lon, west_lon):
+    # Calculate distances between corners of the bounding box
+    width = haversine_distance(north_lat, east_lon, north_lat, west_lon)
+
+    return width
+
+def calc_height(north_lat, south_lat, east_lon, west_lon):
+    height = haversine_distance(north_lat, east_lon, south_lat, east_lon)
+    return height
+
+
 elevation_height = np.array([[2540, 2548, 2525, 2530, 2530, 2534, 2512, 2522, 2538], 
                              [2543, 2533, 2530, 2530, 2521, 2520, 2527, 2509, 2519],
                              [2533, 2533, 2533, 2523, 2523, 2536, 2507, 2510, 2527], 
@@ -304,6 +334,8 @@ if is_increasing_level(water_height, elevation_height, 7, 1):
 
 x = 1
 y = 2
+#print(calc_width(36.9052, 36.9022, -121.7456, -121.7519))
+#print(calc_height(36.9052, 36.9022, -121.7456, -121.7519))
 """
 if is_do_nothing(water_height, x, y):
     print(0)
