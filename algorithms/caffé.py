@@ -129,7 +129,16 @@ def is_increasing_level(water_height, elevation_height, x, y):
     down_neighbor_elevation_height = find_neighbor_elevation_height(x,y,"down", elevation_height)
 
     equal_values_array = get_equal_neighbors_dirs(x,y,elevation_height)
-    original_dirs_array = np.array(["right", "left", "up", "down"])
+    original_dirs_array = []
+
+    if (right_neighbor_elevation_height != -1):
+        original_dirs_array.append("right")
+    if (left_neighbor_elevation_height != -1):
+        original_dirs_array.append("left")
+    if (up_neighbor_elevation_height != -1):
+        original_dirs_array.append("up")
+    if (down_neighbor_elevation_height != -1):
+        original_dirs_array.append("down")     
 
     if equal_values_array.size <= 3:
         values_not_equal_array = np.setdiff1d(original_dirs_array, equal_values_array)
@@ -146,7 +155,7 @@ def is_increasing_level(water_height, elevation_height, x, y):
         if "down" in values_not_equal_array and down_neighbor_elevation_height > this_elevation_height:
             num = num + 1
 
-        if num == 4 - equal_values_array.size:
+        if num == len(original_dirs_array) - equal_values_array.size:
             return True
         else:
             return False
@@ -194,7 +203,13 @@ def is_partitioning_action(water_height, elevation_height, x, y):
     up_prop_weight = 0
     down_prop_weight = 0
 
-    sum_depths = right_neighbor_water_height + left_neighbor_water_height + up_neighbor_water_height + down_neighbor_water_height
+    depth_right = max(0, this_elevation_height + increased_height - right_neighbor_elevation_height)
+    depth_left = max(0, this_elevation_height + increased_height - left_neighbor_elevation_height)
+    depth_up = max(0, this_elevation_height + increased_height - up_neighbor_elevation_height)
+    depth_down = max(0, this_elevation_height + increased_height - down_neighbor_elevation_height)
+
+
+    sum_depths = depth_right + depth_left + depth_up + depth_down
 
     a = 1
     b = 1
@@ -203,26 +218,23 @@ def is_partitioning_action(water_height, elevation_height, x, y):
 
         
     if right_neighbor_elevation_height < this_elevation_height:
-        water_height[x, find_neighbor(x,y,"right", elevation_height)] = max(0, elevation_height[x,y] + increased_height - elevation_height[x, find_neighbor(x,y,"right", elevation_height)])
-        right_prop_weight = right_neighbor_water_height / sum_depths
-        water_height[x, find_neighbor(x,y,"right", elevation_height)] += right_prop_weight * water_height[x,y]
+        right_prop_weight = depth_right / sum_depths
+        water_height[x, find_neighbor(x,y,"right", elevation_height)] += right_prop_weight * depth_right
+
 
     if left_neighbor_elevation_height < this_elevation_height:
-        water_height[x, find_neighbor(x,y,"left", elevation_height)] = max(0, elevation_height[x,y] + increased_height - elevation_height[x, find_neighbor(x,y,"left", elevation_height)])
-        left_prop_weight = left_neighbor_water_height / sum_depths
-        water_height[x, find_neighbor(x,y,"right", elevation_height)] += right_prop_weight * water_height[x,y]
+        left_prop_weight = depth_left / sum_depths
+        water_height[x, find_neighbor(x,y,"right", elevation_height)] += right_prop_weight * depth_left
 
 
     if up_neighbor_elevation_height < this_elevation_height:
-        water_height[find_neighbor(x,y,"up", elevation_height), x] = max(0, elevation_height[x,y] + increased_height - elevation_height[find_neighbor(x,y,"up", elevation_height), y])
-        up_prop_weight = up_neighbor_water_height / sum_depths
-        water_height[x, find_neighbor(x,y,"right", elevation_height)] += right_prop_weight * water_height[x,y]
+        up_prop_weight = depth_up / sum_depths
+        water_height[x, find_neighbor(x,y,"right", elevation_height)] += right_prop_weight * depth_up
 
 
     if down_neighbor_elevation_height < this_elevation_height:
-        water_height[find_neighbor(x,y,"down", elevation_height), x] = max(0, elevation_height[x,y] + increased_height - elevation_height[find_neighbor(x,y,"down", elevation_height), y])
-        down_prop_weight = down_neighbor_water_height / sum_depths
-        water_height[x, find_neighbor(x,y,"right", elevation_height)] += right_prop_weight * water_height[x,y]
+        down_prop_weight = depth_down / sum_depths
+        water_height[x, find_neighbor(x,y,"right", elevation_height)] += right_prop_weight * depth_down
 
 
 

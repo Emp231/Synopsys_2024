@@ -28,12 +28,21 @@ rgb_values = np.full((13, 20, 3), 255, dtype=int)
 # Set RGB values for the single pixel
 #rgb_values[3, 4] = [150, 170, 200]  # Set cell (3, 4) to the specified RGB color
 #rgb_values[8, 12] = [255, 0, 0]
-x = 11
+x = 5
 y = 19
-water_height[11,19] = 20
+water_height[x,y] = 20
 increment_height = 7 # Change to user input later
+# dangerous_level will be used for calculating which areas require evacuation more urgently
+dangerous_level = 6 #change to user input later
 
 def recursion_checking(water_height, elevation_height, x, y):
+    if water_height[x,y] < dangerous_level and water_height[x,y] > 0:
+        rgb_values[x,y] = [255,255,0]
+    elif water_height[x,y] > dangerous_level:
+        rgb_values[x,y] = [255,0,0]
+    else:
+        rgb_values[x,y] = [0,0,0]
+
     if caffé.is_do_nothing(water_height, x, y):
         print(1)
         return
@@ -63,10 +72,49 @@ def recursion_checking(water_height, elevation_height, x, y):
         if down_neighbor_water_height != -1:
             print(4)
             #recursion_checking(water_height, elevation_height, caffé.find_neighbor(x, y, "down", elevation_height), y)
-    else:
-        print(4)
+    elif caffé.is_increasing_level(water_height, elevation_height, x, y):
+        equal_neighbors = caffé.get_equal_neighbors_dirs(x, y, elevation_height)
 
-recursion_checking(water_height, elevation_height, x, y)
+        caffé.is_increasing_level_action(water_height, elevation_height, x, y, increment_height)
+
+        if "right" in equal_neighbors:
+            print(1)
+            #recursion_checking(water_height, elevation_height, x, caffé.find_neighbor(x, y, "right", elevation_height))
+
+        if "left" in equal_neighbors:
+            print(2)
+            #recursion_checking(water_height, elevation_height, x, caffé.find_neighbor(x, y, "left", elevation_height))
+
+        if "up" in equal_neighbors:
+            print(3)
+            #recursion_checking(water_height, elevation_height, caffé.find_neighbor(x, y, "up", elevation_height), y)
+
+        if "down" in equal_neighbors:
+            print(4)
+            #recursion_checking(water_height, elevation_height, caffé.find_neighbor(x, y, "right", elevation_height), y)
+    else:
+        caffé.is_partitioning_action(water_height, elevation_height, x, y)
+        print(5)
+
+        if water_height[x, caffé.find_neighbor(x,y,"right", elevation_height)] > 0:
+            print(1)
+            #recursion_checking(water_height, elevation_height, x, caffé.find_neighbor(x,y,"right", elevation_height))
+
+        if water_height[x, caffé.find_neighbor(x,y,"left", elevation_height)] > 0:
+            print(2)
+            #recursion_checking(water_height, elevation_height, x, caffé.find_neighbor(x,y,"left", elevation_height))
+
+        if water_height[caffé.find_neighbor(x,y,"up", elevation_height), y] > 0:
+            print(3)
+            #recursion_checking(water_height, elevation_height, caffé.find_neighbor(x,y,"up", elevation_height), y)
+        
+        if water_height[caffé.find_neighbor(x,y,"down", elevation_height), y] > 0:
+            print(4)
+            #recursion_checking(water_height, elevation_height, caffé.find_neighbor(x,y,"down", elevation_height), y)
+
+
+print(recursion_checking(water_height, elevation_height, x, y))
+#print(caffé.is_increasing_level(water_height, elevation_height, x, y))
 
 plt.figure()
 
