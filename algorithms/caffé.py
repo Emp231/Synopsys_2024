@@ -331,6 +331,25 @@ def get_equal_neighbors_dirs(x,y,elevation_height):
     return equal_values_array
 
 
+def get_existing_neighbors(x, y, elevation_height):
+    rows, columns = elevation_height.shape
+    existing_neighbors = []
+    if x > 0:
+        existing_neighbors.append("up")
+
+    if x != rows - 1:
+        existing_neighbors.append("down")
+
+    if y > 0:
+        existing_neighbors.append("left")
+    
+    if y != columns - 1:
+        existing_neighbors.append("right")
+    
+    return existing_neighbors
+
+
+
 def haversine_distance(lat1, lon1, lat2, lon2):
     # Radius of the Earth in kilometers
     R = 6371.0

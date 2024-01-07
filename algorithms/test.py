@@ -15,7 +15,7 @@ def set_elevation_height(input_asc):
     
     return data
 
-elevation_height = set_elevation_height(input_asc)
+#elevation_height = set_elevation_height(input_asc)
 water_height = np.zeros([13,20])    
 visited_cells = np.full((13, 20), '', dtype='str')
 
@@ -27,13 +27,20 @@ rgb_values = np.full((13, 20, 3), 255, dtype=int)
 # Set RGB values for the single pixel
 #rgb_values[3, 4] = [150, 170, 200]  # Set cell (3, 4) to the specified RGB color
 #rgb_values[8, 12] = [255, 0, 0]
-x = 0
-y = 0
+x = 2
+y = 2
 water_height[x,y] = 20
+elevation_height = np.array([
+    [9, 8, 11, 12, 7],
+    [8, 8, 8, 11, 14],
+    [7, 8, 10, 7, 8],
+    [8, 9, 7, 7, 7],
+    [10, 9, 8, 7, 8]
+])
 increment_height = 7 # Change to user input later
 # dangerous_level will be used for calculating which areas require evacuation more urgently
 dangerous_level = 6 #change to user input later
-
+"""
 def recursion_checking(water_height, elevation_height, x, y):
     
     if water_height[x,y] < dangerous_level and water_height[x,y] > 0:
@@ -113,7 +120,29 @@ def recursion_checking(water_height, elevation_height, x, y):
 recursion_checking(water_height, elevation_height, x, y)
 #print(caffé.is_partitioning_action(water_height, elevation_height, 0, 0))
 print(water_height[0,0])
+"""
 
+def recursion_checking(water_height, elevation_height, x, y):
+    if caffé.is_do_nothing(water_height, x, y):
+        print(0)
+        return
+    elif caffé.is_ponding(water_height, elevation_height, x, y):
+        caffé.is_ponding_action(water_height, elevation_height, x, y)
+        print(1)
+    elif caffé.is_spreading(water_height, elevation_height, x, y):
+        print(2)
+    elif caffé.is_increasing_level(water_height, elevation_height, x, y):
+        print(3)
+    else:
+        caffé.is_partitioning_action(water_height, elevation_height, x, y)
+        print(4)
+
+recursion_checking(water_height, elevation_height, x, y)
+print(water_height[2,1])
+print(water_height[2,3])
+print(water_height[1,2])
+print(water_height[3,2])
+"""
 plt.figure()
 
 plt.imshow(rgb_values, extent=[0, 20, 0, 13], origin='upper')
@@ -125,5 +154,6 @@ plt.ylim(0, 13)
 
 
 plt.show()
+"""
 
 
