@@ -220,7 +220,12 @@ def recursion_checking(water_height, elevation_height, list_points):
             if "down" in existing_neighbors:
                 new_list_points = np.append(new_list_points, np.array([[caffé.find_neighbor(x, y, "down", elevation_height), y]]), axis=0)
 
-
+    if water_height[x,y] < dangerous_level and water_height[x,y] > 0:
+        rgb_values[x,y] = [255,255,0]
+    elif water_height[x,y] > dangerous_level:
+        rgb_values[x,y] = [255,0,0]
+    elif water_height[x,y] == 0:
+        rgb_values[x,y] = [0,0,0]
     print(new_list_points)
 
 orig_points = np.array([[x,y]])
