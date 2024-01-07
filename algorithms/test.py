@@ -135,13 +135,36 @@ def recursion_checking(water_height, elevation_height, x, y):
         print(3)
     else:
         caffé.is_partitioning_action(water_height, elevation_height, x, y)
-        print(4)
+        differences = []
+        right_neighbor_elevation_height = caffé.find_neighbor_elevation_height(x, y, "right", elevation_height)
+        left_neighbor_elevation_height = caffé.find_neighbor_elevation_height(x, y, "left", elevation_height)
+        up_neighbor_elevation_height = caffé.find_neighbor_elevation_height(x, y, "up", elevation_height)
+        down_neighbor_elevation_height = caffé.find_neighbor_elevation_height(x, y, "down", elevation_height)
+
+        if right_neighbor_elevation_height != -1:
+            differences.append(elevation_height[x,y] - right_neighbor_elevation_height)
+        if left_neighbor_elevation_height != -1:
+            differences.append(elevation_height[x,y] - left_neighbor_elevation_height)
+        if up_neighbor_elevation_height != -1:
+            differences.append(elevation_height[x,y] - up_neighbor_elevation_height)
+        if down_neighbor_elevation_height != -1:
+            differences.append(elevation_height[x,y] - down_neighbor_elevation_height)
+        
+        max_val = max(differences)
+        if differences[0] == max_val:
+            print(0)
+            #recursive method
+        if differences[1] == max_val:
+            print(1)
+            #recursive method
+        if differences[2] == max_val:
+            print(2)
+            #recursive method
+        if differences[3] == max_val:
+            print(3)
+            #recursive method
 
 recursion_checking(water_height, elevation_height, x, y)
-print(water_height[2,1])
-print(water_height[2,3])
-print(water_height[1,2])
-print(water_height[3,2])
 """
 plt.figure()
 
