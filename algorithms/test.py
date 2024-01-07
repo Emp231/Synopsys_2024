@@ -229,7 +229,7 @@ def recursion_checking(water_height, elevation_height, list_points):
     print(new_list_points)
 
 orig_points = np.array([[x,y]])
-recursion_checking(water_height, elevation_height, orig_points)
+#recursion_checking(water_height, elevation_height, orig_points)
 
 """
 plt.figure()
