@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import matplotlib.colors 
 import caffé
 
-input_asc = "/Users/siddharthbalaji/Documents/Github_Home/Untitled/Synopsys_2024/.asc files/pajaro2nd.asc" # Add directory to .asc file
+#input_asc = "/Users/siddharthbalaji/Documents/Github_Home/Untitled/Synopsys_2024/.asc files/pajaro2nd.asc" # Add directory to .asc file
 # /Users/siddharthbalaji/Documents/Github_Home/Untitled/Synopsys_2024/.asc files/pajaro2nd.asc
 
 def set_elevation_height(input_asc):
@@ -121,7 +121,7 @@ recursion_checking(water_height, elevation_height, x, y)
 #print(caffé.is_partitioning_action(water_height, elevation_height, 0, 0))
 print(water_height[0,0])
 """
-
+"""
 def recursion_checking(water_height, elevation_height, x, y):
     if caffé.is_do_nothing(water_height, x, y):
         print(0)
@@ -163,8 +163,33 @@ def recursion_checking(water_height, elevation_height, x, y):
         if differences[3] == max_val:
             print(3)
             #recursive method
+"""
+def recursion_checking(water_height, elevation_height, list_points):
+    new_list_points = np.empty((0, 2), dtype=int)
+    for point in list_points:
+        x = point[0]
+        y = point[1]
+        if caffé.is_do_nothing(water_height, x, y):
+            return
+        elif caffé.is_ponding(water_height, elevation_height, x, y):
+            caffé.is_ponding_action(water_height, elevation_height, x, y)
+            equal_neighbors = caffé.get_equal_neighbors_dirs(x, y, elevation_height)
 
-recursion_checking(water_height, elevation_height, x, y)
+            if "right" in equal_neighbors:
+                new_list_points = np.append(new_list_points, np.array([[x, caffé.find_neighbor(x, y, "right", elevation_height)]]), axis=0)
+            if "left" in equal_neighbors:
+                new_list_points = np.append(new_list_points, np.array([[x, caffé.find_neighbor(x, y, "left", elevation_height)]]), axis=0)
+            if "up" in equal_neighbors:
+                new_list_points = np.append(new_list_points, np.array([[caffé.find_neighbor(x, y, "up", elevation_height), y]]), axis=0)
+            if "down" in equal_neighbors:
+                new_list_points = np.append(new_list_points, np.array([[caffé.find_neighbor(x, y, "down", elevation_height), y]]), axis=0)
+
+    
+    print(new_list_points)
+
+orig_points = np.array([[x,y]])
+recursion_checking(water_height, elevation_height, orig_points)
+
 """
 plt.figure()
 
@@ -174,8 +199,6 @@ plt.xticks(range(20 + 1))
 plt.yticks(range(13 + 1))
 plt.xlim(0, 20) 
 plt.ylim(0, 13)
-
-
 plt.show()
 """
 
