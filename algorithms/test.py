@@ -16,7 +16,7 @@ def set_elevation_height(input_asc):
     return data
 
 #elevation_height = set_elevation_height(input_asc)
-water_height = np.zeros([13,20])    
+water_height = np.zeros([5,5])    
 visited_cells = np.full((13, 20), '', dtype='str')
 
 #user_x = int(input("Enter x value: "))
@@ -30,14 +30,8 @@ rgb_values = np.full((13, 20, 3), 255, dtype=int)
 x = 2
 y = 2
 water_height[x,y] = 20
-elevation_height = np.array([
-    [9, 8, 11, 12, 7],
-    [8, 8, 8, 11, 14],
-    [7, 8, 10, 7, 8],
-    [8, 9, 7, 7, 7],
-    [10, 9, 8, 7, 8]
-])
-increment_height = 7 # Change to user input later
+
+increment_height = 1 # Change to user input later
 # dangerous_level will be used for calculating which areas require evacuation more urgently
 dangerous_level = 6 #change to user input later
 """
@@ -166,10 +160,12 @@ def recursion_checking(water_height, elevation_height, x, y):
 """
 def recursion_checking(water_height, elevation_height, list_points):
     new_list_points = np.empty((0, 2), dtype=int)
+    print(list_points)
     for point in list_points:
         x = point[0]
         y = point[1]
-        if caffé.is_do_nothing(water_height, x, y):
+
+        if water_height[x,y] == 0:
             return
         elif caffé.is_ponding(water_height, elevation_height, x, y):
             caffé.is_ponding_action(water_height, elevation_height, x, y)
@@ -198,9 +194,8 @@ def recursion_checking(water_height, elevation_height, list_points):
             new_list_points = np.append(new_list_points, np.array([[x,y]]), axis=0)
 
         elif caffé.is_increasing_level(water_height, elevation_height, x, y):
-            caffé.is_increasing_level_action(water_height, elevation_height, x, y, increment_height)
             equal_neighbors = caffé.get_equal_neighbors_dirs(x, y, elevation_height)
-
+            caffé.is_increasing_level_action(water_height, elevation_height, x, y, increment_height)
             if "right" in equal_neighbors:
                 new_list_points = np.append(new_list_points, np.array([[x, caffé.find_neighbor(x, y, "right", elevation_height)]]), axis=0)
             if "left" in equal_neighbors:
@@ -211,6 +206,7 @@ def recursion_checking(water_height, elevation_height, list_points):
                 new_list_points = np.append(new_list_points, np.array([[caffé.find_neighbor(x, y, "down", elevation_height), y]]), axis=0)
         else:
             caffé.is_partitioning_action(water_height, elevation_height, x, y)
+            existing_neighbors = caffé.get_existing_neighbors(x,y, elevation_height)
             if "right" in existing_neighbors:
                 new_list_points = np.append(new_list_points, np.array([[x, caffé.find_neighbor(x, y, "right", elevation_height)]]), axis=0)
             if "left" in existing_neighbors:
@@ -219,18 +215,21 @@ def recursion_checking(water_height, elevation_height, list_points):
                 new_list_points = np.append(new_list_points, np.array([[caffé.find_neighbor(x, y, "up", elevation_height), y]]), axis=0)
             if "down" in existing_neighbors:
                 new_list_points = np.append(new_list_points, np.array([[caffé.find_neighbor(x, y, "down", elevation_height), y]]), axis=0)
-
-    if water_height[x,y] < dangerous_level and water_height[x,y] > 0:
-        rgb_values[x,y] = [255,255,0]
-    elif water_height[x,y] > dangerous_level:
-        rgb_values[x,y] = [255,0,0]
-    elif water_height[x,y] == 0:
-        rgb_values[x,y] = [0,0,0]
-    print(new_list_points)
+        print(water_height)
+    print("-----")
+    if new_list_points.shape[0] > 0:
+        recursion_checking(water_height, elevation_height, new_list_points)
 
 orig_points = np.array([[x,y]])
-#recursion_checking(water_height, elevation_height, orig_points)
-
+elevation_height = np.array([
+    [9, 8, 11,12,7],
+    [8, 8, 8, 11,14],
+    [7, 8, 10,7, 8],
+    [8, 9, 7, 7, 7],
+    [10,9, 8, 7, 8]
+])
+recursion_checking(water_height, elevation_height, orig_points)
+#print(caffé.get_equal_neighbors_dirs(3,2, elevation_height))
 """
 plt.figure()
 

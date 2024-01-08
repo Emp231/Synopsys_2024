@@ -193,6 +193,10 @@ def is_increasing_level(water_height, elevation_height, x, y):
 # precondition is that the water_height of the central cell will always be greater than the increment constant
 def is_increasing_level_action(water_height, elevation_height, x, y, increment_constant):
     equal_neighbors = get_equal_neighbors_dirs(x, y, elevation_height)
+
+    orig_elevation_height = elevation_height[x,y]
+    orig_water_height = water_height[x,y]
+
     elevation_height[x,y] += increment_constant 
     water_height[x,y] -= increment_constant
 
@@ -204,17 +208,16 @@ def is_increasing_level_action(water_height, elevation_height, x, y, increment_c
 
 
     split_val = water_height[x,y] / equal_neighbors.size
-    
-    if "right" in equal_neighbors and water_height[x,y] < right_neighbor_water_height:
+    if "right" in equal_neighbors and orig_water_height > right_neighbor_water_height:
         water_height[x, find_neighbor(x,y,"right", elevation_height)] += split_val
         water_height[x,y] -= split_val
-    if "left" in equal_neighbors and water_height[x,y] < left_neighbor_water_height:
+    if "left" in equal_neighbors and orig_water_height > left_neighbor_water_height:
         water_height[x, find_neighbor(x,y,"left", elevation_height)] += split_val
         water_height[x,y] -= split_val
-    if "up" in equal_neighbors and water_height[x,y] < up_neighbor_water_height:
+    if "up" in equal_neighbors and orig_water_height > up_neighbor_water_height:
         water_height[find_neighbor(x,y,"up", elevation_height), y] += split_val
         water_height[x,y] -= split_val
-    if "down" in equal_neighbors and water_height[x,y] < down_neighbor_water_height:
+    if "down" in equal_neighbors and orig_water_height > down_neighbor_water_height:
         water_height[find_neighbor(x,y,"down", elevation_height), y] += split_val
         water_height[x,y] -= split_val
 
