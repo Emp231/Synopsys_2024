@@ -164,7 +164,6 @@ def recursion_checking(water_height, elevation_height, list_points):
     for point in list_points:
         x = point[0]
         y = point[1]
-
         if water_height[x,y] == 0:
             return
         elif caffé.is_ponding(water_height, elevation_height, x, y):
@@ -217,6 +216,7 @@ def recursion_checking(water_height, elevation_height, list_points):
                 new_list_points = np.append(new_list_points, np.array([[caffé.find_neighbor(x, y, "down", elevation_height), y]]), axis=0)
         print(water_height)
     print("-----")
+    new_list_points = np.unique(new_list_points, axis = 0)
     if new_list_points.shape[0] > 0:
         recursion_checking(water_height, elevation_height, new_list_points)
 
@@ -228,6 +228,7 @@ elevation_height = np.array([
     [8, 9, 7, 7, 7],
     [10,9, 8, 7, 8]
 ])
+
 recursion_checking(water_height, elevation_height, orig_points)
 #print(caffé.get_equal_neighbors_dirs(3,2, elevation_height))
 """
