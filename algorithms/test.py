@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import matplotlib.colors 
 import caffé
 
-#input_asc = "/Users/siddharthbalaji/Documents/Github_Home/Untitled/Synopsys_2024/.asc files/pajaro2nd.asc" # Add directory to .asc file
+input_asc = "/Users/siddharthbalaji/Documents/Github_Home/Untitled/Synopsys_2024/.asc files/pajaro2nd.asc" # Add directory to .asc file
 # /Users/siddharthbalaji/Documents/Github_Home/Untitled/Synopsys_2024/.asc files/pajaro2nd.asc
 
 def set_elevation_height(input_asc):
@@ -17,7 +17,6 @@ def set_elevation_height(input_asc):
 
 #elevation_height = set_elevation_height(input_asc)
 water_height = np.zeros([5,5])    
-visited_cells = np.full((13, 20), '', dtype='str')
 
 #user_x = int(input("Enter x value: "))
 
@@ -221,27 +220,32 @@ def recursion_checking(water_height, elevation_height, list_points):
 """
 orig_points = np.array([[x,y]])
 elevation_height = np.array([
-    [9, 8, 11,12,7],
-    [8, 8, 8, 11,14],
-    [7, 8, 10,7, 8],
-    [8, 9, 7, 7, 7],
-    [10,9, 8, 7, 8]
+   [9, 8, 11,12,7],
+   [8, 8, 8, 11,14],
+   [7, 8, 10,7, 8],
+   [8, 9, 7, 7, 7],
+   [10,9, 8, 7, 8]
 ])
 
 
 def recursion_checking(water_height, elevation_height, list_points):
     while list_points.size > 0:
         new_list_points = np.empty((0, 2), dtype=int)
+        if caffé.end_sim(water_height):
+            return
+        
         for point in list_points:
             cur_x = np.atleast_1d(point)[0]
             cur_y = np.atleast_1d(point)[1]
 
             this_list_points = np.empty((0,2), dtype=int)
 
-            
-            if water_height[cur_x,cur_y] <= 1:
+            val_less_zero(water_height, x, y)
+            if water_height[cur_x, cur_y] < 0:
+                water_height[cur_x, cur_y] = 0
                 continue
-            elif caffé.is_ponding(water_height, elevation_height, cur_x, cur_y):
+
+            if caffé.is_ponding(water_height, elevation_height, cur_x, cur_y):
                 caffé.is_ponding_action(water_height, elevation_height, cur_x, cur_y)
                 equal_neighbors = caffé.get_equal_neighbors_dirs(cur_x, cur_y, elevation_height)
 
@@ -300,49 +304,62 @@ def recursion_checking(water_height, elevation_height, list_points):
                 
                 if water_height[cur_x, cur_y] > 0:
                     this_list_points = np.append(this_list_points, np.array([[cur_x, cur_y]]), axis=0)
-
+            print(water_height)
             new_list_points = np.vstack((new_list_points, this_list_points))
             new_list_points = np.unique(new_list_points, axis=0)
         
         list_points = np.empty_like(list_points)
         list_points = new_list_points
-        # if list_points.size == 0:
-        #     points_not_empty = check_actually_empty(water_height, cur_x, cur_y)
-        #     if points_not_empty.size != 0:
-        #         list_points = points_not_empty
-        
-        print(elevation_height)
-        print("--------------------------")
-        print(water_height)
-        print("--------------------------")
-        print(list_points)
+        if list_points.size == 0:
+            points_not_empty = check_actually_empty(water_height, cur_x, cur_y)
+            if points_not_empty.size != 0:
+                list_points = points_not_empty
+        np.set_printoptions(precision=3, suppress=True, sign = ' ')
 
 def check_actually_empty(water_height, x, y):
     list_points = np.empty((0,2), dtype=int)
     rows = water_height.shape[0]
     columns = water_height.shape[1]
 
-    for i in range(0, rows):
-        for j in range(0, columns):
-            if water_height[i][j] > 0:
-                list_points = np.append(list_points, np.array([[i,j]]))
+    for i in range(rows):
+        for j in range(columns):
+            if water_height[i][j] > 0 or water_height[i][j] == -0:
+                list_points = np.append(list_points, [[i,j]], axis=0)
     
-    return np.array(list_points, dtype = int)
+    return list_points
+
+
+def val_less_zero(water_height, x, y):
+    rows = water_height.shape[0]
+    columns = water_height.shape[1]
+    for i in range(rows):
+        for j in range(columns):
+            if water_height[i][j] < 0:
+                water_height[i][j] = 0
+
+rows = water_height.shape[0]
+columns = water_height.shape[1]
+
+
+            
 
 
 recursion_checking(water_height, elevation_height, np.array([[x,y]]))
 # print(check_actually_empty(water_height, x, y))
 # print(np.array([[x,y]]))
-"""
-plt.figure()
 
-plt.imshow(rgb_values, extent=[0, 20, 0, 13], origin='upper')
-plt.grid(True, which='both', linestyle='-', linewidth=0.5, color='black')
-plt.xticks(range(20 + 1))
-plt.yticks(range(13 + 1))
-plt.xlim(0, 20) 
-plt.ylim(0, 13)
-plt.show()
-"""
+
+
+
+# plt.figure()
+
+# plt.imshow(rgb_values, extent=[0, 5, 0, 5], origin='upper')
+# plt.grid(True, which='both', linestyle='-', linewidth=0.5, color='black')
+# plt.xticks(range(20 + 1))
+# plt.yticks(range(13 + 1))
+# plt.xlim(0, 20) 
+# plt.ylim(0, 13)
+# plt.show()
+
 
 
