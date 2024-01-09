@@ -100,6 +100,7 @@ def is_ponding_action(water_height, elevation_height, x, y):
     else:
         elevation_height[x,y] += difference
         water_height[x,y] -= difference
+        
 
 
 def is_spreading(water_height, elevation_height, x, y):

@@ -29,7 +29,7 @@ rgb_values = np.full((13, 20, 3), 255, dtype=int)
 #rgb_values[8, 12] = [255, 0, 0]
 x = 2
 y = 2
-water_height[x,y] = 20
+water_height[x,y] = 200
 
 increment_height = 1 # Change to user input later
 # dangerous_level will be used for calculating which areas require evacuation more urgently
@@ -158,9 +158,9 @@ def recursion_checking(water_height, elevation_height, x, y):
             print(3)
             #recursive method
 """
+"""
 def recursion_checking(water_height, elevation_height, list_points):
     new_list_points = np.empty((0, 2), dtype=int)
-    print(list_points)
     for point in list_points:
         x = point[0]
         y = point[1]
@@ -214,12 +214,11 @@ def recursion_checking(water_height, elevation_height, list_points):
                 new_list_points = np.append(new_list_points, np.array([[caffé.find_neighbor(x, y, "up", elevation_height), y]]), axis=0)
             if "down" in existing_neighbors:
                 new_list_points = np.append(new_list_points, np.array([[caffé.find_neighbor(x, y, "down", elevation_height), y]]), axis=0)
-        print(water_height)
-    print("-----")
+
     new_list_points = np.unique(new_list_points, axis = 0)
     if new_list_points.shape[0] > 0:
         recursion_checking(water_height, elevation_height, new_list_points)
-
+"""
 orig_points = np.array([[x,y]])
 elevation_height = np.array([
     [9, 8, 11,12,7],
@@ -229,7 +228,75 @@ elevation_height = np.array([
     [10,9, 8, 7, 8]
 ])
 
-recursion_checking(water_height, elevation_height, orig_points)
+
+def recursion_checking(water_height, elevation_height, list_points):
+    while list_points.size > 0:
+        new_list_points = np.empty((0, 2), dtype=int)
+        for point in list_points:
+            cur_x = point[0]
+            cur_y = point[1]
+
+            this_list_points = np.empty((0,2), dtype=int)
+
+            
+            if water_height[cur_x,cur_y] <= 1:
+                continue
+            elif caffé.is_ponding(water_height, elevation_height, cur_x, cur_y):
+                caffé.is_ponding_action(water_height, elevation_height, cur_x, cur_y)
+                equal_neighbors = caffé.get_equal_neighbors_dirs(cur_x, cur_y, elevation_height)
+
+                if "right" in equal_neighbors:
+                    this_list_points = np.append(this_list_points, np.array([[cur_x, caffé.find_neighbor(cur_x, cur_y, "right", elevation_height)]]), axis=0)
+                if "left" in equal_neighbors:
+                    this_list_points = np.append(this_list_points, np.array([[x, caffé.find_neighbor(cur_x, cur_y, "left", elevation_height)]]), axis=0)
+                if "up" in equal_neighbors:
+                    this_list_points = np.append(this_list_points, np.array([[caffé.find_neighbor(cur_x, cur_y, "up", elevation_height), cur_y]]), axis=0)
+                if "down" in equal_neighbors:
+                    this_list_points = np.append(this_list_points, np.array([[caffé.find_neighbor(cur_x, cur_y, "down", elevation_height), cur_y]]), axis=0)
+            elif caffé.is_spreading(water_height, elevation_height, cur_x, cur_y):
+                caffé.is_spreading_action(water_height, elevation_height, cur_x, cur_y)
+                existing_neighbors = caffé.get_existing_neighbors(cur_x,cur_y, elevation_height)
+                if "right" in existing_neighbors:
+                    this_list_points = np.append(this_list_points, np.array([[cur_x, caffé.find_neighbor(cur_x, cur_y, "right", elevation_height)]]), axis=0)
+                if "left" in existing_neighbors:
+                    this_list_points = np.append(this_list_points, np.array([[cur_x, caffé.find_neighbor(cur_x, cur_y, "left", elevation_height)]]), axis=0)
+                if "up" in existing_neighbors:
+                    this_list_points = np.append(this_list_points, np.array([[caffé.find_neighbor(cur_x, cur_y, "up", elevation_height), cur_y]]), axis=0)
+                if "down" in existing_neighbors:
+                    this_list_points = np.append(this_list_points, np.array([[caffé.find_neighbor(cur_x, cur_y, "down", elevation_height), cur_y]]), axis=0)
+                
+                this_list_points = np.append(this_list_points, np.array([[cur_x,cur_y]]), axis=0)
+            elif caffé.is_increasing_level(water_height, elevation_height, cur_x, cur_y):
+                equal_neighbors = caffé.get_equal_neighbors_dirs(cur_x, cur_y, elevation_height)
+                caffé.is_increasing_level_action(water_height, elevation_height, cur_x, cur_y, increment_height)
+                if "right" in equal_neighbors:
+                    this_list_points = np.append(this_list_points, np.array([[cur_x, caffé.find_neighbor(cur_x, cur_y, "right", elevation_height)]]), axis=0)
+                if "left" in equal_neighbors:
+                    this_list_points = np.append(this_list_points, np.array([[cur_x, caffé.find_neighbor(cur_x, cur_y, "left", elevation_height)]]), axis=0)
+                if "up" in equal_neighbors:
+                    this_list_points = np.append(this_list_points, np.array([[caffé.find_neighbor(cur_x, cur_y, "up", elevation_height), cur_y]]), axis=0)
+                if "down" in equal_neighbors:
+                    this_list_points = np.append(this_list_points, np.array([[caffé.find_neighbor(cur_x, cur_y, "down", elevation_height), cur_y]]), axis=0)
+            else:
+                caffé.is_partitioning_action(water_height, elevation_height, cur_x, cur_y)
+                existing_neighbors = caffé.get_existing_neighbors(cur_x,cur_y, elevation_height)
+                if "right" in existing_neighbors:
+                    this_list_points = np.append(this_list_points, np.array([[cur_x, caffé.find_neighbor(cur_x, cur_y, "right", elevation_height)]]), axis=0)
+                if "left" in existing_neighbors:
+                    this_list_points = np.append(this_list_points, np.array([[cur_x, caffé.find_neighbor(cur_x, cur_y, "left", elevation_height)]]), axis=0)
+                if "up" in existing_neighbors:
+                    this_list_points = np.append(this_list_points, np.array([[caffé.find_neighbor(cur_x, cur_y, "up", elevation_height), cur_y]]), axis=0)
+                if "down" in existing_neighbors:
+                    this_list_points = np.append(this_list_points, np.array([[caffé.find_neighbor(cur_x, cur_y, "down", elevation_height), cur_y]]), axis=0)
+
+            new_list_points = np.vstack((new_list_points, this_list_points))
+            new_list_points = np.unique(new_list_points, axis=0)
+
+        list_points = np.empty_like(list_points)
+        list_points = new_list_points
+        print(water_height)
+
+recursion_checking(water_height, elevation_height, np.array([[x,y]]))
 #print(caffé.get_equal_neighbors_dirs(3,2, elevation_height))
 """
 plt.figure()
