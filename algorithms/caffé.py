@@ -100,7 +100,7 @@ def is_ponding_action(water_height, elevation_height, x, y):
     else:
         elevation_height[x,y] += difference
         water_height[x,y] -= difference
-        
+        water_height[x,y] = np.round(water_height[x,y], decimals=8)
 
 
 def is_spreading(water_height, elevation_height, x, y):
@@ -133,15 +133,22 @@ def is_spreading_action(water_height, elevation_height, x, y):
 
     if "right" in existing_neighbors and water_height[x, find_neighbor(x, y, "right", elevation_height)] < water_height[x, y]:
         water_height[x, find_neighbor(x, y, "right", elevation_height)] += split
+        water_height[x, find_neighbor(x, y, "right", elevation_height)] = np.round(water_height[x, find_neighbor(x, y, "right", elevation_height)], decimals=8)
 
     if "left" in existing_neighbors and water_height[x, find_neighbor(x, y, "left", elevation_height)] < water_height[x, y]:
         water_height[x, find_neighbor(x, y, "left", elevation_height)] += split
+        water_height[x, find_neighbor(x, y, "left", elevation_height)] = np.round(water_height[x, find_neighbor(x, y, "left", elevation_height)], decimals=8)
+
 
     if "up" in existing_neighbors and water_height[find_neighbor(x, y, "up", elevation_height), y] < water_height[x, y]:
         water_height[find_neighbor(x, y, "up", elevation_height), y] += split
+        water_height[find_neighbor(x, y, "up", elevation_height), y] = np.round(water_height[find_neighbor(x, y, "up", elevation_height), y], decimals=8)
+
 
     if "down" in existing_neighbors and water_height[find_neighbor(x, y, "down", elevation_height), y] < water_height[x, y]:
         water_height[find_neighbor(x, y, "down", elevation_height), y] += split
+        water_height[find_neighbor(x, y, "down", elevation_height), y] = np.round(water_height[find_neighbor(x, y, "down", elevation_height), y], decimals=8)
+
 
 
     water_height[x,y] = split
@@ -200,6 +207,7 @@ def is_increasing_level_action(water_height, elevation_height, x, y, increment_c
 
     elevation_height[x,y] += increment_constant 
     water_height[x,y] -= increment_constant
+    water_height[x,y] = np.round(water_height[x,y], decimals=8)
 
 
     right_neighbor_water_height = find_neighbor_water_height(x,y,"right", water_height)
@@ -208,19 +216,35 @@ def is_increasing_level_action(water_height, elevation_height, x, y, increment_c
     down_neighbor_water_height = find_neighbor_water_height(x,y,"down", water_height)
 
 
-    split_val = water_height[x,y] / equal_neighbors.size
+    split_val = water_height[x,y] / len(equal_neighbors)
     if "right" in equal_neighbors and orig_water_height > right_neighbor_water_height:
         water_height[x, find_neighbor(x,y,"right", elevation_height)] += split_val
+        water_height[x, find_neighbor(x,y,"right", elevation_height)] = np.round(water_height[x, find_neighbor(x,y,"right", elevation_height)], decimals=8)
+
         water_height[x,y] -= split_val
+        water_height[x,y] = np.round(water_height[x,y], decimals=8)
+
     if "left" in equal_neighbors and orig_water_height > left_neighbor_water_height:
         water_height[x, find_neighbor(x,y,"left", elevation_height)] += split_val
+        water_height[x,find_neighbor(x,y,"left", elevation_height)] = np.round(water_height[x,find_neighbor(x,y,"left", elevation_height)], decimals=8)
+
         water_height[x,y] -= split_val
+        water_height[x,y] = np.round(water_height[x,y], decimals=8)
+
     if "up" in equal_neighbors and orig_water_height > up_neighbor_water_height:
         water_height[find_neighbor(x,y,"up", elevation_height), y] += split_val
+        water_height[find_neighbor(x,y,"up", elevation_height), y] = np.round(water_height[find_neighbor(x,y,"up", elevation_height), y], decimals=8)
+
         water_height[x,y] -= split_val
+        water_height[x,y] = np.round(water_height[x,y], decimals=8)
+
     if "down" in equal_neighbors and orig_water_height > down_neighbor_water_height:
         water_height[find_neighbor(x,y,"down", elevation_height), y] += split_val
+        water_height[find_neighbor(x,y,"down", elevation_height), y] = np.round(water_height[find_neighbor(x,y,"down", elevation_height), y], decimals=8)
+
         water_height[x,y] -= split_val
+        water_height[x,y] = np.round(water_height[x,y], decimals=8)
+
 
 # i = 1 is northern cell
 # i = 2 is eastern cell
@@ -249,22 +273,28 @@ def is_partitioning_action(water_height, elevation_height, x, y):
     b = 0.25
 
     increased_height = a * water_height[x,y] ** b
+    increased_height = np.round(increased_height, decimals=8)
+
     existing_sides = []
 
     if right_neighbor_elevation_height != -1 and right_neighbor_elevation_height + right_neighbor_water_height < this_elevation_height + this_water_height:
         right_depth = max(0, this_elevation_height + increased_height - right_neighbor_elevation_height)
+        right_depth = np.round(right_depth, decimals = 8)
         existing_sides.append("right")
 
     if left_neighbor_elevation_height != -1 and left_neighbor_elevation_height + left_neighbor_water_height < this_elevation_height + this_water_height:
         left_depth = max(0, this_elevation_height + increased_height - left_neighbor_elevation_height)
+        left_depth = np.round(left_depth, decimals = 8)
         existing_sides.append("left")
 
     if up_neighbor_elevation_height != -1 and up_neighbor_elevation_height + up_neighbor_water_height < this_elevation_height + this_water_height:
         up_depth = max(0, this_elevation_height + increased_height - up_neighbor_elevation_height)
+        up_depth = np.round(up_depth, decimals = 8)
         existing_sides.append("up")
 
     if down_neighbor_elevation_height != -1 and down_neighbor_elevation_height + down_neighbor_water_height < this_elevation_height + this_water_height:
         down_depth = max(0, this_elevation_height + increased_height - down_neighbor_elevation_height)
+        down_depth = np.round(down_depth, decimals = 8)
         existing_sides.append("down")
 
     sum_depths = 0
@@ -276,22 +306,28 @@ def is_partitioning_action(water_height, elevation_height, x, y):
         sum_depths += up_depth
     if "down" in existing_sides:
         sum_depths += down_depth
+    
+    sum_depths = np.round(sum_depths, decimals = 8)
     if sum_depths != 0:
         if "right" in existing_sides:
             right_weight = right_depth / sum_depths
             water_height[x, find_neighbor(x,y,"right", elevation_height)] += right_weight * water_height[x,y]
+            water_height[x, find_neighbor(x,y,"right", elevation_height)] = np.round(water_height[x, find_neighbor(x,y,"right", elevation_height)], decimals = 8)
 
         if "left" in existing_sides:
             left_weight = left_depth / sum_depths
             water_height[x, find_neighbor(x,y,"left", elevation_height)] = left_weight * water_height[x,y]
+            water_height[x, find_neighbor(x,y,"left", elevation_height)] = np.round(water_height[x, find_neighbor(x,y,"left", elevation_height)], decimals = 8)
 
         if "up" in existing_sides:
             up_weight = up_depth / sum_depths
             water_height[find_neighbor(x,y,"up", elevation_height), y] = up_weight * water_height[x,y]
+            water_height[find_neighbor(x,y,"up", elevation_height), y] = np.round(water_height[find_neighbor(x,y,"up", elevation_height), y], decimals = 8)
 
         if "down" in existing_sides:
             down_weight = down_depth / sum_depths
             water_height[find_neighbor(x,y,"down", elevation_height), y] = down_weight * water_height[x,y]
+            water_height[find_neighbor(x,y,"down", elevation_height), y] = np.round(water_height[find_neighbor(x,y,"down", elevation_height), y], decimals = 8)
 
         water_height[x,y] = 0
     else:
