@@ -20,14 +20,14 @@ water_height = np.zeros([5,5])
 
 #user_x = int(input("Enter x value: "))
 
-rgb_values = np.full((13, 20, 3), 255, dtype=int)
+#rgb_values = np.full((13, 20, 3), 255, dtype=int)
 
 
 # Set RGB values for the single pixel
 #rgb_values[3, 4] = [150, 170, 200]  # Set cell (3, 4) to the specified RGB color
 #rgb_values[8, 12] = [255, 0, 0]
-x = 2
-y = 2
+x = 0
+y = 0
 water_height[x,y] = 200
 
 increment_height = 1 # Change to user input later
@@ -229,23 +229,24 @@ elevation_height = np.array([
 
 
 def recursion_checking(water_height, elevation_height, list_points):
+    # list_points is the list of points that the program will run through for simulation every iteration
     while list_points.size > 0:
         new_list_points = np.empty((0, 2), dtype=int)
-        if caffé.end_sim(water_height):
-            return
-        
+
+        # runs through every point
         for point in list_points:
             cur_x = np.atleast_1d(point)[0]
             cur_y = np.atleast_1d(point)[1]
-
+            
+            
             this_list_points = np.empty((0,2), dtype=int)
-
-            val_less_zero(water_height, x, y)
-            if water_height[cur_x, cur_y] < 0:
-                water_height[cur_x, cur_y] = 0
+            
+            # accounts for flood drainage and irrigation
+            if water_height[cur_x, cur_y] < 1:
                 continue
 
-            if caffé.is_ponding(water_height, elevation_height, cur_x, cur_y):
+            # if it is in the ponding situation, it does the action and adds new points to the new list as necessary
+            elif caffé.is_ponding(water_height, elevation_height, cur_x, cur_y):
                 caffé.is_ponding_action(water_height, elevation_height, cur_x, cur_y)
                 equal_neighbors = caffé.get_equal_neighbors_dirs(cur_x, cur_y, elevation_height)
 
@@ -261,6 +262,7 @@ def recursion_checking(water_height, elevation_height, list_points):
                 if water_height[cur_x, cur_y] > 0:
                     this_list_points = np.append(this_list_points, np.array([[cur_x, cur_y]]), axis=0)
 
+            # if it is in the spreading situation, it does the action and adds new points to the new list as necessary
             elif caffé.is_spreading(water_height, elevation_height, cur_x, cur_y):
                 caffé.is_spreading_action(water_height, elevation_height, cur_x, cur_y)
                 existing_neighbors = caffé.get_existing_neighbors(cur_x,cur_y, elevation_height)
@@ -276,6 +278,7 @@ def recursion_checking(water_height, elevation_height, list_points):
                 if water_height[cur_x, cur_y] > 0:
                     this_list_points = np.append(this_list_points, np.array([[cur_x, cur_y]]), axis=0)
 
+            # if it is in the increasing level situation, it does the action and adds new points to the new list as necessary
             elif caffé.is_increasing_level(water_height, elevation_height, cur_x, cur_y):
                 equal_neighbors = caffé.get_equal_neighbors_dirs(cur_x, cur_y, elevation_height)
                 caffé.is_increasing_level_action(water_height, elevation_height, cur_x, cur_y, increment_height)
@@ -290,6 +293,7 @@ def recursion_checking(water_height, elevation_height, list_points):
 
                 if water_height[cur_x, cur_y] > 0:
                     this_list_points = np.append(this_list_points, np.array([[cur_x, cur_y]]), axis=0)
+            # partitioning action if nothing else can be done
             else:
                 caffé.is_partitioning_action(water_height, elevation_height, cur_x, cur_y)
                 existing_neighbors = caffé.get_existing_neighbors(cur_x,cur_y, elevation_height)
@@ -304,38 +308,16 @@ def recursion_checking(water_height, elevation_height, list_points):
                 
                 if water_height[cur_x, cur_y] > 0:
                     this_list_points = np.append(this_list_points, np.array([[cur_x, cur_y]]), axis=0)
+            print(elevation_height)
+            print("-------------------")
             print(water_height)
+            # removes duplicate values to maximize efficiency
             new_list_points = np.vstack((new_list_points, this_list_points))
             new_list_points = np.unique(new_list_points, axis=0)
         
         list_points = np.empty_like(list_points)
         list_points = new_list_points
-        if list_points.size == 0:
-            points_not_empty = check_actually_empty(water_height, cur_x, cur_y)
-            if points_not_empty.size != 0:
-                list_points = points_not_empty
-        np.set_printoptions(precision=3, suppress=True, sign = ' ')
 
-def check_actually_empty(water_height, x, y):
-    list_points = np.empty((0,2), dtype=int)
-    rows = water_height.shape[0]
-    columns = water_height.shape[1]
-
-    for i in range(rows):
-        for j in range(columns):
-            if water_height[i][j] > 0 or water_height[i][j] == -0:
-                list_points = np.append(list_points, [[i,j]], axis=0)
-    
-    return list_points
-
-
-def val_less_zero(water_height, x, y):
-    rows = water_height.shape[0]
-    columns = water_height.shape[1]
-    for i in range(rows):
-        for j in range(columns):
-            if water_height[i][j] < 0:
-                water_height[i][j] = 0
 
 rows = water_height.shape[0]
 columns = water_height.shape[1]
