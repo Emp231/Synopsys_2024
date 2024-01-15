@@ -4,7 +4,7 @@ import matplotlib.colors
 import caffé
 import time
 
-input_asc = "/Users/siddharthbalaji/Documents/Github_Home/Untitled/Synopsys_2024/.asc files/pajaro2nd.asc" # Add directory to .asc file
+input_asc = "/Users/siddharthbalaji/Documents/Github_Home/Untitled/Synopsys_2024/algorithms/spacereserve.asc" # Add directory to .asc file
 # /Users/siddharthbalaji/Documents/Github_Home/Untitled/Synopsys_2024/.asc files/pajaro2nd.asc
 
 def set_elevation_height(input_asc):
@@ -230,12 +230,12 @@ rgb_values = np.full((elevation_height.shape[0], elevation_height.shape[1], 3), 
 
 plt.figure()
 
-img = plt.imshow(rgb_values, extent=[0, 20, 0, 13], origin='upper')
+img = plt.imshow(rgb_values, extent=[0, elevation_height.shape[0], 0, elevation_height.shape[1]], origin='upper')
 plt.grid(True, which='both', linestyle='-', linewidth=0.5, color='black')
-plt.xticks(range(20 + 1))
-plt.yticks(range(13 + 1))
-plt.xlim(0, 20) 
-plt.ylim(0, 13)
+plt.xticks(range(elevation_height.shape[0] + 1))
+plt.yticks(range(elevation_height.shape[1] + 1))
+plt.xlim(0, elevation_height.shape[0]) 
+plt.ylim(0, elevation_height.shape[1])
 
 
 def recursion_checking(water_height, elevation_height, list_points, EV_cells, increment_constant, rgb_values, dangerous_level):
