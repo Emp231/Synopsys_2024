@@ -32,22 +32,19 @@ import numpy as np
 import math
 
 #water_height is EV
+def is_do_nothing(EV_cells, x, y):
+    return EV_cells[x,y] == 0 # EV is not always water height! We need to figure out how to represent EV!
 
-def calc_cell_height(x, y):
-  return elevation_height[x,y] + water_height[x,y]
-
-def is_do_nothing(water_height, x, y):
-    return water_height[x,y] == 0 # EV is not always water height! We need to figure out how to represent EV!
-
-def end_sim(water_height):
-    array_x = np.size(water_height, 1)
-    array_y = np.size(water_height, 0)
-    for x in range(array_x):
-        for y in range(array_y):
-            if water_height[x,y] > 1:
+def end_sim(EV_cells, threshold):
+    EV_cells_array = np.array(EV_cells)
+    rows = EV_cells.shape[0]
+    columns = EV_cells.shape[1]
+    for i in range(rows):
+        for j in range(columns):
+            if EV_cells[i][j] > threshold:
                 return False
-
     return True
+
 
 def is_ponding(water_height, elevation_height, x, y, EV_cell):
     # right_neighbor_elevation_height = find_neighbor_elevation_height(x,y,"right", elevation_height)
@@ -81,14 +78,19 @@ def is_ponding(water_height, elevation_height, x, y, EV_cell):
     left_neighbor_cell_height = find_neighbor_cell_height(x, y, "left", water_height, elevation_height)
     up_neighbor_cell_height = find_neighbor_cell_height(x, y, "up", water_height, elevation_height)
     down_neighbor_cell_height = find_neighbor_cell_height(x, y, "down", water_height, elevation_height)
-    this_cell_height = water_height[x,y] + elevation_height[x, y]
-
-    if this_cell_height < right_neighbor_cell_height and this_cell_height < left_neighbor_cell_height and this_cell_height < up_neighbor_cell_height and this_cell_height < down_neighbor_cell_height:
-        return True
-    else:
-        return False
-
-    
+    this_cell_height = water_height[x,y] + elevation_height[x, y]  
+    existing_neighbors = get_existing_neighbors(x, y, elevation_height)
+    num = 0
+    for dir in existing_neighbors:
+        if dir == "right" and right_neighbor_cell_height != -1 and this_cell_height < right_neighbor_cell_height:
+            num += 1
+        if dir == "left" and left_neighbor_cell_height != -1 and this_cell_height < left_neighbor_cell_height:
+            num += 1
+        if dir == "up" and up_neighbor_cell_height != -1 and this_cell_height < up_neighbor_cell_height:
+            num += 1
+        if dir == "down" and down_neighbor_cell_height != -1 and this_cell_height < down_neighbor_cell_height:
+            num += 1
+    return num == len(existing_neighbors)
 
 
 
@@ -117,13 +119,24 @@ def is_ponding_action(water_height, elevation_height, x, y, EV_cell):
     up_neighbor_cell_height = find_neighbor_cell_height(x, y, "up", water_height, elevation_height)
     down_neighbor_cell_height = find_neighbor_cell_height(x, y, "down", water_height, elevation_height)
     this_cell_height = water_height[x,y] + elevation_height[x, y]
-    min_val = min(right_neighbor_cell_height, left_neighbor_cell_height, up_neighbor_cell_height, down_neighbor_cell_height)
-    difference = this_cell_height - min_val
-    if EV_cell > difference:
+
+
+    valid_neighbor_heights = [height for height in [right_neighbor_cell_height, left_neighbor_cell_height, up_neighbor_cell_height, down_neighbor_cell_height] if height != -1]
+
+        # Check if there are valid neighbor heights
+    if valid_neighbor_heights:
+        min_val = min(valid_neighbor_heights)
+        # Continue with your code using min_val
+    else:
+        # Handle the case where all neighbor heights are -1
+        min_val = None  # or any other suitable default value or handling
+
+    difference = min_val - this_cell_height
+    if EV_cell[x,y] > difference:
         water_height[x,y] += difference
         EV_cell[x,y] -= difference
     else:
-        water_height += EV_cell[x,y]
+        water_height[x,y] += EV_cell[x,y]
         EV_cell[x,y] = 0
 
 
@@ -262,6 +275,10 @@ def is_increasing_level(water_height, elevation_height, x, y):
     existing_neighbors = get_existing_neighbors(x,y, elevation_height)
     equal_neighbors = get_equal_cell_height_neighbors(x,y,elevation_height, water_height)
     num = 0
+
+    # print(right_neighbor_cell_height)
+    # print(down_neighbor_cell_height)
+
     if "right" in  existing_neighbors and "right" not in equal_neighbors:
         if this_cell_height < right_neighbor_cell_height:
             num += 1
@@ -271,11 +288,11 @@ def is_increasing_level(water_height, elevation_height, x, y):
     if "up" in  existing_neighbors and "up" not in equal_neighbors:
         if this_cell_height < up_neighbor_cell_height:
             num += 1
-    if "down" in  existing_neighbors and "down" not in equal_neighbors:
+    if "down" in existing_neighbors and "down" not in equal_neighbors:
         if this_cell_height < down_neighbor_cell_height:
             num += 1
-
-    if num + equal_neighbors.size == existing_neighbors.size:
+    
+    if equal_neighbors.size > 0 and (num + equal_neighbors.size) == len(existing_neighbors):
         return True
     else:
         return False
@@ -342,24 +359,28 @@ def is_increasing_level_action(water_height, elevation_height, x, y, increment_c
     #     water_height[find_neighbor(x,y, "down", elevation_height), y]= 0
     # if water_height[x,y] < 0:
     #     water_height[x,y] = 0
-    water_height[x,y] += increment_constant
-    EV_cell -= increment_constant
     equal_neighbors = get_equal_cell_height_neighbors(x,y,water_height, elevation_height)
-    split = EV_cell /equal_neighbors.size
-    
-    if "right" in equal_neighbors:
-        EV_cell[x, find_neighbor(x,y,"right", elevation_height)] += split
+    if increment_constant > EV_cell[x,y]:
+        water_height[x,y] += EV_cell[x,y]
+        EV_cell[x,y] = 0
+    else:
+        water_height[x,y] += increment_constant
+        EV_cell[x,y] -= increment_constant
+        split = EV_cell[x,y] / equal_neighbors.size
+        if "right" in equal_neighbors:
+            EV_cell[x, find_neighbor(x,y,"right", elevation_height)] += split
 
-    if "left" in equal_neighbors:
-        EV_cell[x, find_neighbor(x,y,"left", elevation_height)] += split
+        if "left" in equal_neighbors:
+            EV_cell[x, find_neighbor(x,y,"left", elevation_height)] += split
 
 
-    if "up" in equal_neighbors:
-        EV_cell[find_neighbor(x,y,"up", elevation_height), y] += split
+        if "up" in equal_neighbors:
+            EV_cell[find_neighbor(x,y,"up", elevation_height), y] += split
 
-    if "down" in equal_neighbors:
-        EV_cell[find_neighbor(x,y,"down", elevation_height), y] += split
+        if "down" in equal_neighbors:
+            EV_cell[find_neighbor(x,y,"down", elevation_height), y] += split
 
+        EV_cell[x,y] = 0
 # i = 1 is northern cell
 # i = 2 is eastern cell
 # i = 3 is southern cell
@@ -469,37 +490,41 @@ def is_partitioning_action(water_height, elevation_height, x, y, EV_cell):
 
     a = 0.09
     b = 0.25
-    increased_height = a * EV_cell[x,y] ** b
-
+    increased_height = a * EV_cell[x][y] ** b
     right_depth = -1
     left_depth = -1
     up_depth = -1
     down_depth = -1
 
     if right_neighbor_cell_height != -1:
-        right_depth = max(0, right_neighbor_cell_height + increased_height - this_cell_height)
+        right_depth = max(0, this_cell_height + increased_height - right_neighbor_cell_height)
     if left_neighbor_cell_height != -1:
-        right_depth = max(0, left_neighbor_cell_height + increased_height - this_cell_height)
+        left_depth = max(0, this_cell_height + increased_height - left_neighbor_cell_height)
     if up_neighbor_cell_height != -1:
-        right_depth = max(0, up_neighbor_cell_height + increased_height - this_cell_height)
+        up_depth = max(0, this_cell_height + increased_height - up_neighbor_cell_height)
     if down_neighbor_cell_height != -1:
-        right_depth = max(0, down_neighbor_cell_height + increased_height - this_cell_height)
+        down_depth = max(0, this_cell_height + increased_height - down_neighbor_cell_height)
 
     vals = [right_depth, left_depth, up_depth, down_depth]
-    sum_result = sum(val for val in vals if val != -1)
+    sum_result = 0
+    for val in vals:
+        if val != -1:
+            sum_result += val
 
     if right_depth != -1:
         weight = right_depth / sum_result
-        EV_cell[x, find_neighbor(x,y,"right", elevation_height)] = weight * EV_cell[x,y]
+        EV_cell[x, find_neighbor(x,y,"right", elevation_height)] += weight * EV_cell[x,y]
     if left_depth != -1:
         weight = left_depth / sum_result
-        EV_cell[x, find_neighbor(x,y,"left", elevation_height)] = weight * EV_cell[x,y]
+        EV_cell[x, find_neighbor(x,y,"left", elevation_height)] += weight * EV_cell[x,y]
     if up_depth != -1:
         weight = up_depth / sum_result
-        EV_cell[find_neighbor(x,y,"up", elevation_height), y] = weight * EV_cell[x,y]
+        EV_cell[find_neighbor(x,y,"up", elevation_height), y] += weight * EV_cell[x,y]
     if down_depth != -1:
         weight = down_depth / sum_result
-        EV_cell[find_neighbor(x,y,"down", elevation_height), y] = weight * EV_cell[x,y]
+        EV_cell[find_neighbor(x,y,"down", elevation_height), y] += weight * EV_cell[x,y]
+
+    EV_cell[x,y] = 0
 
 def find_neighbor(x,y, direction, elevation_height):
     array_y = np.size(elevation_height, 1)
@@ -550,8 +575,8 @@ def find_neighbor_water_height(x,y, direction, water_height):
         else:
             return -1
 
-def find_neighbor_cell_height(x,y,direction, water_height, elevation):
-    sum = find_neighbor_elevation_height(x,y,direction, elevation_height) + find_neighbor_water_height(x,y,direction, water_height)
+def find_neighbor_cell_height(x,y,direction, water_height, elevation_height):
+    sum = find_neighbor_elevation_height(x,y,direction, elevation_height) + find_neighbor_water_height(x,y,direction, water_height)    
     if find_neighbor_elevation_height(x,y,direction, elevation_height) != -1 and find_neighbor_water_height(x,y,direction, water_height) != -1:
         return sum
     else:
@@ -647,17 +672,50 @@ def calc_height(north_lat, south_lat, east_lon, west_lon):
     return height
 
 
-elevation_height = np.array([[2540, 2548, 2525, 2530, 2530, 2534, 2512, 2522, 2538], 
-                             [2543, 2533, 2530, 2530, 2521, 2520, 2527, 2509, 2519],
-                             [2533, 2533, 2533, 2523, 2523, 2536, 2507, 2510, 2527], 
-                             [2509, 2533, 2509, 2530, 2502, 2514, 2527, 2510, 2522],
-                             [2533, 2525, 2517, 2532, 2541, 2517, 2501, 2503, 2515], 
-                             [2529, 2548, 2535, 2528, 2520, 2519, 2512, 2525, 2506],
-                             [2529, 2508, 2533, 2506, 2549, 2523, 2546, 2509, 2514], 
-                             [2533, 2508, 2508, 2503, 2526, 2508, 2530, 2541, 2547],
-                             [2539, 2525, 2506, 2541, 2507, 2522, 2503, 2547, 2547]])
-water_height = np.zeros((9,9))
-x = 8
-y = 8
-water_height[8][8] = 20
-water_height[7][8] = 10
+# elevation_height = np.array([
+#    [9, 8, 11,12,7],
+#    [8, 8, 8, 11,14],
+#    [7, 8, 10,7, 8],
+#    [8, 9, 7, 7, 7],
+#    [10,9, 8, 7, 8]
+# ])
+
+# x = 2
+# y = 1
+# water_height = np.array([
+#     [6, 7, 4, 3, 8],
+#     [7, 7, 7, 3, 0],
+#     [8, 6, 4, 6.90161585, 6],
+#     [6, 5, 7, 7, 6.],
+#     [4, 5, 6, 6, 5]
+
+# ])
+# EV_cells = np.array([
+#     [0, 0, 0, 0, 0],
+#     [0, 0, 0, 0, 0.01821087],
+#     [0, 0.08878877, 0, 0.05631223, 0],
+#     [0.97147086, 0, 0.08878877, 0, 0],
+#     [0, 0, 0, 0, 1.98573113]
+#])
+
+
+# print(water_height)
+# print(EV_cells)
+
+
+# if is_do_nothing(EV_cells, x, y):
+#     print(0)
+# elif is_ponding(water_height, elevation_height, x, y, EV_cells):
+#     print(1)
+#     is_ponding_action(water_height, elevation_height, x, y, EV_cells) 
+# elif is_spreading(water_height, elevation_height, x, y):
+#     print(2)
+#     is_spreading_action(water_height, elevation_height, x, y, EV_cells)
+# elif is_increasing_level(water_height, elevation_height, x, y):
+#     print(3)
+#     is_increasing_level_action(water_height, elevation_height, x, y, 1, EV_cells)
+# else:
+#     print(4)
+
+# print(water_height)
+# print(EV_cells)
