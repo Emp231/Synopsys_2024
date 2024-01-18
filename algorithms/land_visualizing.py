@@ -8,7 +8,11 @@ import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
 import numpy as np
 import test
+from IPython.display import display, clear_output
 
+def temp(rgb_values):
+  rgb_values[0][0] = [255,255,255]
+  
 elevation_height = test.get_elevation_height()
 water_height = np.zeros([elevation_height.shape[0], elevation_height.shape[1]])
 EV_cells = np.zeros([elevation_height.shape[0], elevation_height.shape[1]])
@@ -50,26 +54,19 @@ driver.quit()
 # Open the image
 image = mpimg.imread('output.png')
 
-# Create a Matplotlib figure and axis
-fig, ax = plt.subplots()
+# Create a grid of size 20x13x3, initialized with zeros
+grid = np.zeros((20, 13, 3))
 
+# Set RGB values for each grid point (example values, replace with your logic)
+
+# Display the image with the grid
+fig, ax = plt.subplots()
 # Display the image
 ax.imshow(image)
 
-# Add a grid that fits the size of the land
-grid = np.zeros_like(image)
-grid[::20, :] = 1  # Adjust the grid spacing as needed
-grid[:, ::20] = 1  # Adjust the grid spacing as needed
-
 # Display the grid on top of the image
-# Invert the grid array
-grid = np.flipud(grid)
+ax.imshow(grid, extent=[0, image.shape[1], image.shape[0], 0], alpha=0.5)
+temp(grid)
 
-# Display the grid on top of the image
-ax.imshow(grid, cmap='gray', alpha=0.3, extent=[0, image.shape[1], image.shape[0], 0])
-
-# Hide the axes for a cleaner look
-ax.axis('off')
-
-# Show the plot and keep it open
-plt.show(block=True)
+# Show the modified image
+plt.show()

@@ -142,9 +142,9 @@ def recursion_checking(water_height, elevation_height, list_points, EV_cells, in
         rgb_values[EV_cells == 0] = [255,255,255]
 
         # Update the imshow object with new colors
-        img.set_array(rgb_values)
+        #img.set_array(rgb_values)
 
-        plt.pause(0.5)  # Pause for a short duration to allow visualization
+        #plt.pause(0.5)  # Pause for a short duration to allow visualization
 
 
         temp = set(map(tuple, new_list_points.tolist()))
