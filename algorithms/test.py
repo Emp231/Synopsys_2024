@@ -52,14 +52,14 @@ increment_height = 1 # Change to user input later
 rgb_values = np.full((elevation_height.shape[0], elevation_height.shape[1], 3), 255, dtype=int)
 
 
-plt.figure()
+# plt.figure()
 
-img = plt.imshow(rgb_values, extent=[0, elevation_height.shape[1], 0, elevation_height.shape[0]], origin='upper')
-plt.grid(True, which='both', linestyle='-', linewidth=0.5, color='black')
-plt.xticks(range(20 + 1))
-plt.yticks(range(13 + 1))
-plt.xlim(0, 20) 
-plt.ylim(0, 13)
+# img = plt.imshow(rgb_values, extent=[0, elevation_height.shape[1], 0, elevation_height.shape[0]], origin='upper')
+# plt.grid(True, which='both', linestyle='-', linewidth=0.5, color='black')
+# plt.xticks(range(20 + 1))
+# plt.yticks(range(13 + 1))
+# plt.xlim(0, 20) 
+# plt.ylim(0, 13)
 
 
 def recursion_checking(water_height, elevation_height, list_points, EV_cells, increment_constant, rgb_values, dangerous_level):
@@ -151,6 +151,8 @@ def recursion_checking(water_height, elevation_height, list_points, EV_cells, in
         new_list_points = np.array(list(temp))
         list_points = new_list_points
 
+def get_elevation_height():
+    return elevation_height
 
 # elevation_height = np.array([
 #    [9, 8, 11,12,7],
@@ -178,7 +180,7 @@ elevation_height_values = np.array([
 
 
 
-recursion_checking(water_height, elevation_height, np.array([[x,y]]), EV_cells, increment_height, rgb_values, dangerous_level)
+#recursion_checking(water_height, elevation_height, np.array([[x,y]]), EV_cells, increment_height, rgb_values, dangerous_level)
 
 
-plt.show()
+#plt.show()
