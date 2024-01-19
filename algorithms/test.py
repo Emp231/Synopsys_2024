@@ -139,8 +139,17 @@ def recursion_checking(water_height, elevation_height, list_points, EV_cells, in
 
         rgb_values[EV_cells >= dangerous_level] = [255, 0, 255]
         rgb_values[(EV_cells < dangerous_level) & (EV_cells > 0)] = [0, 0, 255]
-        rgb_values[EV_cells == 0] = [255,255,255]
+        rgb_values[EV_cells == 0] = [255, 255, 255]
 
+        # Set alpha values based on conditions
+        alpha_values = np.where(EV_cells == 0, 0.0, 1.0)  # Set alpha to 0.0 for EV_cells == 0, 1.0 otherwise
+        alpha_values = np.expand_dims(alpha_values, axis=-1)
+
+        # Combine RGB and alpha values
+        rgba_values = np.concatenate((rgb_values / 255, alpha_values), axis=-1)
+
+        # Update the grid image with RGBA values
+        grid_image.set_array(rgba_values)
         # grid_image.set_data(rgb_values)
 
         # fig.canvas.draw()
@@ -151,10 +160,10 @@ def recursion_checking(water_height, elevation_height, list_points, EV_cells, in
 
 
                 # Update the displayed data
-        grid_image.set_data(rgb_values)
+        #grid_image.set_data(rgb_values)
         fig.canvas.draw()
         plt.pause(0.1)  # Adjust the delay as needed
-        
+
         temp = set(map(tuple, new_list_points.tolist()))
         new_list_points = np.array(list(temp))
         list_points = new_list_points

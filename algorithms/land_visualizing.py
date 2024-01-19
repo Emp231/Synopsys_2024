@@ -69,7 +69,7 @@ fig, ax = plt.subplots()
 ax_image = ax.imshow(image)
 
 # Display the grid on top of the image
-grid_image = ax.imshow(grid, extent=[0, image.shape[1], image.shape[0], 0], alpha=0.5)
+grid_image = ax.imshow(grid, extent=[0, image.shape[1], image.shape[0], 0], alpha=1)
 
 test.recursion_checking(water_height, elevation_height, np.array([[x,y]]), EV_cells, increment_constant, grid, dangerous_level, grid_image, fig)
 
