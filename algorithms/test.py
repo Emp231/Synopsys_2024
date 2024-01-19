@@ -49,7 +49,7 @@ dangerous_level = 6 #change to user input later
 #Set RGB values for the single pixel
 increment_height = 1 # Change to user input later
 
-rgb_values = np.full((elevation_height.shape[0], elevation_height.shape[1], 3), 255, dtype=int)
+# rgb_values = np.full((elevation_height.shape[0], elevation_height.shape[1], 3), 255, dtype=int)
 
 
 # plt.figure()
@@ -62,7 +62,7 @@ rgb_values = np.full((elevation_height.shape[0], elevation_height.shape[1], 3), 
 # plt.ylim(0, 13)
 
 
-def recursion_checking(water_height, elevation_height, list_points, EV_cells, increment_constant, rgb_values, dangerous_level):
+def recursion_checking(water_height, elevation_height, list_points, EV_cells, increment_constant, rgb_values, dangerous_level, grid_image, fig):
     # list_points is the list of points that the program will run through for simulation every iteration
     while list_points.size > 0:
         new_list_points = np.empty((0, 2), dtype=object)
@@ -141,12 +141,20 @@ def recursion_checking(water_height, elevation_height, list_points, EV_cells, in
         rgb_values[(EV_cells < dangerous_level) & (EV_cells > 0)] = [0, 0, 255]
         rgb_values[EV_cells == 0] = [255,255,255]
 
+        # grid_image.set_data(rgb_values)
+
+        # fig.canvas.draw()
         # Update the imshow object with new colors
-        #img.set_array(rgb_values)
+        # img.set_array(rgb_values)
 
-        #plt.pause(0.5)  # Pause for a short duration to allow visualization
+        # plt.pause(0.5)  # Pause for a short duration to allow visualization
 
 
+                # Update the displayed data
+        grid_image.set_data(rgb_values)
+        fig.canvas.draw()
+        plt.pause(0.1)  # Adjust the delay as needed
+        
         temp = set(map(tuple, new_list_points.tolist()))
         new_list_points = np.array(list(temp))
         list_points = new_list_points
@@ -180,7 +188,11 @@ elevation_height_values = np.array([
 
 
 
-#recursion_checking(water_height, elevation_height, np.array([[x,y]]), EV_cells, increment_height, rgb_values, dangerous_level)
+# recursion_checking(water_height, elevation_height, np.array([[x,y]]), EV_cells, increment_height, rgb_values, dangerous_level)
 
 
 #plt.show()
+
+def temp(grid):
+
+    grid[0][0] = [100, 50, 200]

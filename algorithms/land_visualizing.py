@@ -12,11 +12,15 @@ from IPython.display import display, clear_output
 
 def temp(rgb_values):
   rgb_values[0][0] = [255,255,255]
-  
+
+x = 0
+y = 0
+increment_constant = 1
+dangerous_level = 6 
 elevation_height = test.get_elevation_height()
 water_height = np.zeros([elevation_height.shape[0], elevation_height.shape[1]])
 EV_cells = np.zeros([elevation_height.shape[0], elevation_height.shape[1]])
-
+EV_cells[0][0] = 10
 
 west_longitude = -121.7519
 east_longitude = -121.7456
@@ -47,7 +51,7 @@ m.save(mapFname)
 mapUr1 = 'file://{0}/{1}'.format(os.getcwd(), mapFname)
 driver = webdriver.Chrome()
 driver.get(mapUr1)
-time.sleep(5)
+#time.sleep(5)
 driver.save_screenshot('output.png')
 driver.quit()
 
@@ -55,18 +59,22 @@ driver.quit()
 image = mpimg.imread('output.png')
 
 # Create a grid of size 20x13x3, initialized with zeros
-grid = np.zeros((20, 13, 3))
+grid = np.full((elevation_height.shape[0], elevation_height.shape[1], 3), 255, dtype=int)
 
 # Set RGB values for each grid point (example values, replace with your logic)
 
 # Display the image with the grid
 fig, ax = plt.subplots()
 # Display the image
-ax.imshow(image)
+ax_image = ax.imshow(image)
 
 # Display the grid on top of the image
-ax.imshow(grid, extent=[0, image.shape[1], image.shape[0], 0], alpha=0.5)
-temp(grid)
+grid_image = ax.imshow(grid, extent=[0, image.shape[1], image.shape[0], 0], alpha=0.5)
 
+test.recursion_checking(water_height, elevation_height, np.array([[x,y]]), EV_cells, increment_constant, grid, dangerous_level, grid_image, fig)
+
+#grid_image.set_data(grid)
+
+#fig.canvas.draw()
 # Show the modified image
 plt.show()
