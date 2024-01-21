@@ -16,6 +16,11 @@ def end_sim(EV_cells, threshold):
                 return False
     return True
 
+def pre_processing(elevation_height, boundary_map):
+    for i in range(boundary_map.shape[0]):
+        for j in range(boundary_map.shape[1]):
+            if boundary_map[i][j] == 1:
+                elevation_height[i][j] += 100
 
 def is_ponding(water_height, elevation_height, x, y, EV_cell):
 
@@ -84,8 +89,7 @@ def is_spreading(water_height, elevation_height, x, y):
 
     if right_neighbor_cell_height == left_neighbor_cell_height == up_neighbor_cell_height == down_neighbor_cell_height:
         cell_heights_equal = True
-    # checks if either (1): more than one neighbor exists and all the existing neighbors elevation heights equal the elevation height of the central cell
-    # or (2): the cell heights (water + elevation) of all the neighboring cells are equal and the cell height of the central cell is equal than them
+ 
     return cell_heights_equal
     
 def is_spreading_action(water_height, elevation_height, x, y, EV_cell):
@@ -126,7 +130,7 @@ def is_increasing_level(water_height, elevation_height, x, y):
     num = 0
 
 
-    if "right" in  existing_neighbors and "right" not in equal_neighbors:
+    if "right" in existing_neighbors and "right" not in equal_neighbors:
         if this_cell_height < right_neighbor_cell_height:
             num += 1
     if "left" in  existing_neighbors and "left" not in equal_neighbors:
@@ -364,3 +368,6 @@ def calc_width(north_lat, south_lat, east_lon, west_lon):
 def calc_height(north_lat, south_lat, east_lon, west_lon):
     height = haversine_distance(north_lat, east_lon, south_lat, east_lon)
     return height
+
+
+
