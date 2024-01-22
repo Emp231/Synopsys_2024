@@ -26,6 +26,7 @@ west_longitude = -121.7519
 east_longitude = -121.7456
 north_latitude = 36.9052
 south_latitude = 36.9022
+ 
 
 # Calculate the coordinates of the bounding box
 bounding_box = [(south_latitude, west_longitude), (north_latitude, east_longitude)]
@@ -71,7 +72,10 @@ ax_image = ax.imshow(image)
 # Display the grid on top of the image
 grid_image = ax.imshow(grid, extent=[0, image.shape[1], image.shape[0], 0], alpha=1)
 
-test.recursion_checking(water_height, elevation_height, np.array([[x,y]]), EV_cells, increment_constant, grid, dangerous_level, grid_image, fig)
+ax.set_axis_off()
+
+
+test.final_image_recursion(water_height, elevation_height, np.array([[x,y]]), EV_cells, increment_constant, grid, dangerous_level, grid_image, fig)
 
 #grid_image.set_data(grid)
 
