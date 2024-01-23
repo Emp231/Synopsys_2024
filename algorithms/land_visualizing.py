@@ -21,6 +21,8 @@ elevation_height = test.get_elevation_height()
 water_height = np.zeros([elevation_height.shape[0], elevation_height.shape[1]])
 EV_cells = np.zeros([elevation_height.shape[0], elevation_height.shape[1]])
 EV_cells[0][0] = 10
+rgb_values = np.full((elevation_height.shape[0], elevation_height.shape[1], 3), 255, dtype=int)
+
 
 west_longitude = -121.7519
 east_longitude = -121.7456
@@ -56,29 +58,58 @@ driver.get(mapUr1)
 driver.save_screenshot('output.png')
 driver.quit()
 
-# Open the image
+#Open the image
+# image = mpimg.imread('output.png')
+# #final_array = test.test_final_image_recursion(water_height, elevation_height, np.array([[x,y]]), EV_cells, increment_constant, rgb_values, dangerous_level)
+# # Create a grid of size 20x13x3, initialized with zeros
+# grid = np.full((elevation_height.shape[0], elevation_height.shape[1], 3), 255, dtype=int)
+
+# # Set RGB values for each grid point (example values, replace with your logic)
+
+# # Display the image with the grid
+# fig, ax = plt.subplots()
+# # Display the image
+# ax_image = ax.imshow(image)
+
+# # Display the grid on top of the image
+# grid_image = ax.imshow(grid, extent=[0, image.shape[1], image.shape[0], 0], alpha=1)
+
+# ax.set_axis_off()
+
+
+# test.final_image_recursion(water_height, elevation_height, np.array([[x,y]]), EV_cells, increment_constant, grid, dangerous_level, grid_image, fig)
+
+# #grid_image.set_data(grid)
+
+# #fig.canvas.draw()
+# # Show the modified image
+# plt.show()
+
+
+
+
+
+
+
+final_array = test.test_final_image_recursion(water_height, elevation_height, np.array([[x,y]]), EV_cells, increment_constant, rgb_values, dangerous_level)  # Replace this with your actual final_array
+
 image = mpimg.imread('output.png')
 
 # Create a grid of size 20x13x3, initialized with zeros
-grid = np.full((elevation_height.shape[0], elevation_height.shape[1], 3), 255, dtype=int)
+grid = np.full((final_array.shape[0], final_array.shape[1], 3), 255, dtype=int)
 
-# Set RGB values for each grid point (example values, replace with your logic)
+# Set RGB values for each grid point based on final_array values
+# (Replace this with your logic to map final_array values to RGB)
+grid[final_array >= 0.5] = [255, 0, 255]  # Example: set magenta for values >= 0.5
+grid[(final_array < 0.5) & (final_array > 0)] = [0, 0, 255]  # Example: set blue for 0 < values < 0.5
+grid[final_array == 0] = [255, 255, 255]  # Example: set white for values == 0
 
-# Display the image with the grid
-fig, ax = plt.subplots()
 # Display the image
-ax_image = ax.imshow(image)
+fig, ax = plt.subplots()
+ax.imshow(image)
 
 # Display the grid on top of the image
-grid_image = ax.imshow(grid, extent=[0, image.shape[1], image.shape[0], 0], alpha=1)
+ax.imshow(grid, extent=[0, image.shape[1], image.shape[0], 0], alpha=0.3)
 
 ax.set_axis_off()
-
-
-test.final_image_recursion(water_height, elevation_height, np.array([[x,y]]), EV_cells, increment_constant, grid, dangerous_level, grid_image, fig)
-
-#grid_image.set_data(grid)
-
-#fig.canvas.draw()
-# Show the modified image
 plt.show()
