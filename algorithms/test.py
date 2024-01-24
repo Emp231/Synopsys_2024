@@ -385,14 +385,12 @@ def test_final_image_recursion(water_height, elevation_height, list_points, EV_c
             rgb_values[final_array >= dangerous_level] = [255, 0, 255]
             rgb_values[(final_array < dangerous_level) & (final_array > 0)] = [0, 0, 255]
             rgb_values[final_array == 0] = [255, 255, 255]
-
             return final_array
     
         for point in list_points:
             cur_x = np.atleast_1d(point)[0]
             cur_y = np.atleast_1d(point)[1]
             final_array = np.maximum(EV_cells, final_array)
-
 
             if caffé.is_do_nothing(EV_cells, cur_x, cur_y):
                 continue
@@ -454,7 +452,6 @@ def test_final_image_recursion(water_height, elevation_height, list_points, EV_c
                 if EV_cells[cur_x][cur_y] > 0:
                     new_list_points = np.vstack([new_list_points, [cur_x, cur_y]])
             np.set_printoptions(precision=8, suppress=True)  # Set precision and suppress small values
-        
         # Update the imshow object with new colors
 
 
@@ -475,3 +472,101 @@ def get_elevation_height():
 
 
 #print(test_final_image_recursion(water_height, elevation_height, np.array([[x,y]]), EV_cells, increment_height, rgb_values, dangerous_level))
+# temp_grid = np.zeros(((elevation_height.shape[0], elevation_height.shape[1])))
+# temp_grid[4, 7] = 1
+# temp_grid[5, 8] = 1
+# temp_grid[4, 8] = 1
+# temp_grid[4, 9] = 1
+# temp_grid[5, 9] = 1
+# temp_grid[6, 9] = 1
+# temp_grid[7, 10] = 1
+# temp_grid[8, 10] = 1
+# temp_grid[6, 10] = 1
+# temp_grid[5, 10] = 1
+# temp_grid[4, 10] = 1
+# temp_grid[7, 9] = 1
+# temp_grid[5, 4] = 1
+# temp_grid[6, 5] = 1
+# temp_grid[7, 6] = 1
+# temp_grid[8, 7] = 1
+# temp_grid[5, 5] = 1
+# temp_grid[9, 8] = 1
+# temp_grid[6, 6] = 1
+# temp_grid[10, 8] = 1
+# temp_grid[10, 9] = 1
+# temp_grid[11, 10] = 1
+# temp_grid[12, 10] = 1
+# temp_grid[11, 9] = 1
+# temp_grid[8, 4] = 1
+# temp_grid[8, 3] = 1
+# temp_grid[7, 4] = 1
+# temp_grid[6, 3] = 1
+# temp_grid[9, 4] = 1
+# temp_grid[9, 5] = 1
+# temp_grid[10, 5] = 1
+# temp_grid[10, 6] = 1
+# temp_grid[11, 6] = 1
+# temp_grid[12, 7] = 1
+# temp_grid[12, 6] = 1
+# temp_grid[7, 3] = 1
+# temp_grid[12, 4] = 1
+# temp_grid[12, 2] = 1
+# temp_grid[11, 3] = 1
+# temp_grid[10, 3] = 1
+# temp_grid[10, 2] = 1
+# temp_grid[4, 12] = 1
+# temp_grid[4, 13] = 1
+# temp_grid[4, 14] = 1
+# temp_grid[4, 15] = 1
+# temp_grid[6, 12] = 1
+# temp_grid[6, 13] = 1
+# temp_grid[6, 14] = 1
+# temp_grid[6, 15] = 1
+# temp_grid[7, 12] = 1
+# temp_grid[7, 13] = 1
+# temp_grid[7, 14] = 1
+# temp_grid[7, 15] = 1
+# temp_grid[9, 12] = 1
+# temp_grid[9, 13] = 1
+# temp_grid[9, 14] = 1
+# temp_grid[9, 15] = 1
+# temp_grid[10, 12] = 1
+# temp_grid[10, 13] = 1
+# temp_grid[10, 14] = 1
+# temp_grid[10, 15] = 1
+# temp_grid[12, 12] = 1
+# temp_grid[12, 13] = 1
+# temp_grid[12, 14] = 1
+# temp_grid[12, 15] = 1
+# temp_grid[2, 12] = 1
+# temp_grid[1, 12] = 1
+# temp_grid[0, 12] = 1
+# temp_grid[2, 11] = 1
+# temp_grid[1, 11] = 1
+# temp_grid[0, 11] = 1
+# temp_grid[2, 14] = 1
+# temp_grid[1, 14] = 1
+# temp_grid[0, 14] = 1
+# temp_grid[2, 16] = 1
+# temp_grid[1, 16] = 1
+# temp_grid[0, 16] = 1
+# temp_grid[2, 18] = 1
+# temp_grid[1, 18] = 1
+# temp_grid[0, 18] = 1
+# temp_grid[2, 19] = 1
+# temp_grid[1,19] = 1
+# temp_grid[0,19] = 1
+# temp_grid[2,10] = 1
+# temp_grid[1,10] = 1
+# temp_grid[0,10] = 1
+# temp_grid[2,8] = 1
+# temp_grid[1,8] = 1
+# temp_grid[0,8] = 1
+# temp_grid[12,9] = 1
+# temp_grid[5,4] = 1
+# temp_grid[4,5] = 1
+# temp_grid[4,4] = 1
+# temp_grid[9,3] = 1
+# temp_grid[9,2] = 1
+
+# caffé.pre_processing(elevation_height, temp_grid)
