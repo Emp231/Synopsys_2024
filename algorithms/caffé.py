@@ -341,33 +341,49 @@ def get_existing_neighbors(x, y, elevation_height):
 
 
 
-def haversine_distance(lat1, lon1, lat2, lon2):
-    # Radius of the Earth in kilometers
-    R = 6371.0
+# def haversine_distance(lat1, lon1, lat2, lon2):
+#     # Radius of the Earth in kilometers
+#     R = 6371.0
     
-    # Convert latitude and longitude from degrees to radians
-    lat1, lon1, lat2, lon2 = map(math.radians, [lat1, lon1, lat2, lon2])
+#     # Convert latitude and longitude from degrees to radians
+#     lat1, lon1, lat2, lon2 = map(math.radians, [lat1, lon1, lat2, lon2])
     
-    # Differences in coordinates
-    dlat = lat2 - lat1
-    dlon = lon2 - lon1
+#     # Differences in coordinates
+#     dlat = lat2 - lat1
+#     dlon = lon2 - lon1
     
-    # Haversine formula
-    a = math.sin(dlat / 2)**2 + math.cos(lat1) * math.cos(lat2) * math.sin(dlon / 2)**2
-    c = 2 * math.atan2(math.sqrt(a), math.sqrt(1 - a))
-    distance = R * c
+#     # Haversine formula
+#     a = math.sin(dlat / 2)**2 + math.cos(lat1) * math.cos(lat2) * math.sin(dlon / 2)**2
+#     c = 2 * math.atan2(math.sqrt(a), math.sqrt(1 - a))
+#     distance = R * c
     
+#     return distance
+
+# def calc_width(north_lat, south_lat, east_lon, west_lon):
+#     # Calculate distances between corners of the bounding box
+#     width = haversine_distance(north_lat, east_lon, north_lat, west_lon)
+
+#     return width
+
+# def calc_height(north_lat, south_lat, east_lon, west_lon):
+#     height = haversine_distance(north_lat, east_lon, south_lat, east_lon)
+#     return height
+
+def calc_lat_distance(lat1, lat2):
+    radius = 6371.0
+    lat1 = math.radians(lat1)
+    lat2 = math.radians(lat2)
+
+    difference = lat1- lat2
+    distance = 2 * radius * math.asin(math.sqrt(math.sin(difference / 2)**2))
     return distance
 
-def calc_width(north_lat, south_lat, east_lon, west_lon):
-    # Calculate distances between corners of the bounding box
-    width = haversine_distance(north_lat, east_lon, north_lat, west_lon)
+def calc_lon_distance(lon1, lon2):
+    radius = 6371.0
+    lon1 = math.radians(lon1)
+    lon2 = math.radians(lon2)
 
-    return width
-
-def calc_height(north_lat, south_lat, east_lon, west_lon):
-    height = haversine_distance(north_lat, east_lon, south_lat, east_lon)
-    return height
-
-
+    difference = lon2 - lon1
+    distance = 2 * radius * math.asin(math.sqrt(math.sin(difference / 2)**2))
+    return distance
 
