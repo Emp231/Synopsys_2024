@@ -1,0 +1,288 @@
+{
+  "type": "FeatureCollection",
+  "generator": "overpass-turbo",
+  "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL.",
+  "timestamp": "2024-02-06T03:31:04Z",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/260141185",
+        "addr:housenumber": "506;508",
+        "addr:street": "Capp Street",
+        "building": "yes",
+        "height": "11",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.4181864,
+          37.7585047
+        ]
+      },
+      "id": "way/260141185"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/260141186",
+        "building": "yes",
+        "height": "11",
+        "source": "Bing",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.4187824,
+          37.7582738
+        ]
+      },
+      "id": "way/260141186"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/260141187",
+        "building": "yes",
+        "height": "9",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.4186541,
+          37.7572663
+        ]
+      },
+      "id": "way/260141187"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/260141188",
+        "addr:housenumber": "510;512",
+        "addr:street": "Capp Street",
+        "building": "yes",
+        "height": "11",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.4181761,
+          37.7584384
+        ]
+      },
+      "id": "way/260141188"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/260141189",
+        "addr:housenumber": "544",
+        "addr:street": "Capp Street",
+        "building": "yes",
+        "height": "8",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.4182671,
+          37.7579244
+        ]
+      },
+      "id": "way/260141189"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/260141190",
+        "addr:housenumber": "500",
+        "addr:street": "Capp Street",
+        "building": "yes",
+        "height": "9",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.4181736,
+          37.7585859
+        ]
+      },
+      "id": "way/260141190"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/260141191",
+        "building": "yes",
+        "height": "24",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.4180763,
+          37.7574049
+        ]
+      },
+      "id": "way/260141191"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/260141198",
+        "addr:housenumber": "2447;2449;2451",
+        "addr:street": "Mission Street",
+        "building": "yes",
+        "height": "8",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.4187174,
+          37.7578624
+        ]
+      },
+      "id": "way/260141198"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/260141200",
+        "building": "yes",
+        "height": "8",
+        "source": "Bing",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.418542,
+          37.7582454
+        ]
+      },
+      "id": "way/260141200"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/260141202",
+        "addr:housenumber": "2441;2445",
+        "addr:street": "Mission Street",
+        "building": "yes",
+        "height": "3",
+        "source": "Bing",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.4186583,
+          37.7579483
+        ]
+      },
+      "id": "way/260141202"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/260141204",
+        "addr:housenumber": "2465",
+        "addr:street": "Mission Street",
+        "building": "yes",
+        "height": "9",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.4186373,
+          37.7577505
+        ]
+      },
+      "id": "way/260141204"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/260141206",
+        "addr:housenumber": "552;554",
+        "addr:street": "Capp Street",
+        "building": "yes",
+        "height": "9",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.4181917,
+          37.7578251
+        ]
+      },
+      "id": "way/260141206"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/260141208",
+        "addr:housenumber": "558",
+        "addr:street": "Capp Street",
+        "building": "yes",
+        "height": "9",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.4181837,
+          37.7577438
+        ]
+      },
+      "id": "way/260141208"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/260141210",
+        "addr:housenumber": "2431;2433;2435;2437",
+        "addr:street": "Mission Street",
+        "building": "yes",
+        "height": "2",
+        "source": "Bing",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.4186675,
+          37.7580717
+        ]
+      },
+      "id": "way/260141210"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/260141211",
+        "building": "yes",
+        "height": "10",
+        "source": "Bing",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.4187769,
+          37.7581878
+        ]
+      },
+      "id": "way/260141211"
+    }
+  ]
+}

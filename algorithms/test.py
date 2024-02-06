@@ -385,12 +385,14 @@ def test_final_image_recursion(water_height, elevation_height, list_points, EV_c
             rgb_values[final_array >= dangerous_level] = [255, 0, 255]
             rgb_values[(final_array < dangerous_level) & (final_array > 0)] = [0, 0, 255]
             rgb_values[final_array == 0] = [255, 255, 255]
+
             return final_array
     
         for point in list_points:
             cur_x = np.atleast_1d(point)[0]
             cur_y = np.atleast_1d(point)[1]
             final_array = np.maximum(EV_cells, final_array)
+
 
             if caffé.is_do_nothing(EV_cells, cur_x, cur_y):
                 continue
@@ -452,6 +454,7 @@ def test_final_image_recursion(water_height, elevation_height, list_points, EV_c
                 if EV_cells[cur_x][cur_y] > 0:
                     new_list_points = np.vstack([new_list_points, [cur_x, cur_y]])
             np.set_printoptions(precision=8, suppress=True)  # Set precision and suppress small values
+        
         # Update the imshow object with new colors
 
 
