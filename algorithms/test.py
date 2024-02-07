@@ -380,7 +380,9 @@ def test_final_image_recursion(water_height, elevation_height, list_points, EV_c
     final_array = np.zeros([elevation_height.shape[0], elevation_height.shape[1]])
     while list_points.size > 0:
         new_list_points = np.empty((0, 2), dtype=object)
+        final_array = np.maximum(EV_cells, final_array)
 
+        
         if caffé.end_sim(EV_cells, 2):
             rgb_values[final_array >= dangerous_level] = [255, 0, 255]
             rgb_values[(final_array < dangerous_level) & (final_array > 0)] = [0, 0, 255]

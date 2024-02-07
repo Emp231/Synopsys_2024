@@ -1,5 +1,5 @@
-west_longitude: -121.7519
-east_longitude: -121.7456
-north_latitude: 36.9052
-south_latitude: 36.9022
+west_longitude: -121.868234
+east_longitude: -121.861792
+north_latitude: 37.686560
+south_latitude: 37.682029
  
