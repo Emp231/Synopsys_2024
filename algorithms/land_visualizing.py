@@ -56,11 +56,14 @@ def ask_for_input():
   filename = 'coords.txt'
   #coordinates = read_coordinates_from_file(filename)
   coordinates = read_coordinates_from_file(filename)
-  west_longitude = float(coordinates[0])
-  east_longitude = float(coordinates[1])
-  north_latitude = float(coordinates[2])
-  south_latitude = float(coordinates[3])
-
+  # west_longitude = float(coordinates[0])
+  # east_longitude = float(coordinates[1])
+  # north_latitude = float(coordinates[2])
+  # south_latitude = float(coordinates[3])
+  west_longitude = -121.867272
+  east_longitude = -121.862584
+  north_latitude = 37.686560
+  south_latitude = 37.682029
   
   lat = caffé.calc_lat_distance(north_latitude, south_latitude) * 1000
   long = caffé.calc_lon_distance(west_longitude, east_longitude) * 1000
@@ -82,7 +85,9 @@ def ask_for_input():
 
   # Create a map and fit it to the bounding box
   m = folium.Map(location=[average_latitude, (west_longitude + east_longitude) / 2], zoom_start=zoom_level, zoomControl=False)
-  m.fit_bounds(bounding_box)
+  m.fit_bounds([(south_latitude, west_longitude), (north_latitude, east_longitude)])
+
+  print("Bounding Box:", bounding_box)
 
   # Save the map as an HTML file
   mapFname = 'output.html'
@@ -241,10 +246,13 @@ def ask_for_input():
 
   # Display the image
   fig, ax = plt.subplots()
-  ax.imshow(image)
+
+  # Display the image with the correct extent
+  ax.imshow(image, extent=[west_longitude, east_longitude, south_latitude, north_latitude])
 
   # Display the grid on top of the image
-  ax.imshow(grid, extent=[0, image.shape[1], image.shape[0], 0], alpha=0.2)
+  extent = [west_longitude, east_longitude, south_latitude, north_latitude]
+  ax.imshow(grid, extent=extent, alpha=0.2)
 
   ax.set_axis_off()
   plt.show()

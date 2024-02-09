@@ -67,15 +67,20 @@ increment_height = 1 # Change to user input later
 
 rgb_values = np.full((elevation_height.shape[0], elevation_height.shape[1], 3), 255, dtype=int)
 
+grid_width = elevation_height.shape[1]
+grid_height = elevation_height.shape[0]
 
-# plt.figure()
+# fig, ax = plt.subplots()
 
-# img = plt.imshow(rgb_values, extent=[0, elevation_height.shape[1], 0, elevation_height.shape[0]], origin='upper')
-# plt.grid(True, which='both', linestyle='-', linewidth=0.5, color='black')
-# plt.xticks(range(elevation_height.shape[1] + 1))
-# plt.yticks(range(elevation_height.shape[0] + 1))
-# plt.xlim(0, elevation_height.shape[1]) 
-# plt.ylim(0, elevation_height.shape[0])
+# # Create an empty grid image
+# grid_image = ax.imshow(rgb_values, extent=[0, elevation_height.shape[1], 0, elevation_height.shape[0]], origin='upper')
+
+# # Customize the plot if needed
+# ax.grid(True, which='both', linestyle='-', linewidth=0.5, color='black')
+# ax.set_xticks(range(grid_width + 1))
+# ax.set_yticks(range(grid_height + 1))
+# ax.set_xlim(0, grid_width) 
+# ax.set_ylim(0, grid_height)
 
 
 def recursion_checking(water_height, elevation_height, list_points, EV_cells, increment_constant, rgb_values, dangerous_level, grid_image, fig):
@@ -152,27 +157,17 @@ def recursion_checking(water_height, elevation_height, list_points, EV_cells, in
                 if EV_cells[cur_x][cur_y] > 0:
                     new_list_points = np.vstack([new_list_points, [cur_x, cur_y]])
             np.set_printoptions(precision=8, suppress=True)  # Set precision and suppress small values
-
         rgb_values[EV_cells >= dangerous_level] = [255, 0, 255]
         rgb_values[(EV_cells < dangerous_level) & (EV_cells > 0)] = [0, 0, 255]
         rgb_values[EV_cells == 0] = [255, 255, 255]
 
-        # Set alpha values based on conditions
-        alpha_values = np.where(EV_cells == 0, 0.0, 1.0)  # Set alpha to 0.0 for EV_cells == 0, 1.0 otherwise
+        alpha_values = np.where(EV_cells == 0, 0.0, 1.0)
         alpha_values = np.expand_dims(alpha_values, axis=-1)
-
-        # Combine RGB and alpha values
         rgba_values = np.concatenate((rgb_values / 255, alpha_values), axis=-1)
-
-        # Update the grid image with RGBA values
-        grid_image.set_array(rgba_values)
         
-        fig.canvas.draw()
-        plt.pause(0.1)  # Adjust the delay as needed
+        grid_image.set_data(rgba_values)
 
-
-                # Update the displayed data
-
+        plt.pause(0.5)
 
         temp = set(map(tuple, new_list_points.tolist()))
         new_list_points = np.array(list(temp))
@@ -456,14 +451,8 @@ def test_final_image_recursion(water_height, elevation_height, list_points, EV_c
                 if EV_cells[cur_x][cur_y] > 0:
                     new_list_points = np.vstack([new_list_points, [cur_x, cur_y]])
             np.set_printoptions(precision=8, suppress=True)  # Set precision and suppress small values
+
         
-        # Update the imshow object with new colors
-
-
-
-                # Update the displayed data
-
-
         temp = set(map(tuple, new_list_points.tolist()))
         new_list_points = np.array(list(temp))
         list_points = new_list_points   
@@ -475,9 +464,9 @@ def get_elevation_height():
     return elevation_height
 
 
-
-#print(test_final_image_recursion(water_height, elevation_height, np.array([[x,y]]), EV_cells, increment_height, rgb_values, dangerous_level))
-# temp_grid = np.zeros(((elevation_height.shape[0], elevation_height.shape[1])))
+# recursion_checking(water_height, elevation_height, np.array([[x,y]]), EV_cells, increment_height, rgb_values, dangerous_level, grid_image, fig)
+# plt.show(block=False)  # Show the plot without blocking
+# plt.show()
 # temp_grid[4, 7] = 1
 # temp_grid[5, 8] = 1
 # temp_grid[4, 8] = 1
