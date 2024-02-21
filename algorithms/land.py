@@ -10,6 +10,7 @@ from PIL import Image, ImageDraw
 import plotly.graph_objects as go
 from staticmap import StaticMap, CircleMarker
 import io
+import caffé
 
 
 x = 0
@@ -85,7 +86,8 @@ ax.set_ylim(0, grid_height)
 ax.axis('off')
 
 # Call your function for updating the grid image
-test.recursion_checking(water_height, elevation_height, np.array([[x, y]]), EV_cells, increment_constant, rgb_values, dangerous_level, grid_image, fig)
+#test.recursion_checking(water_height, elevation_height, np.array([[x, y]]), EV_cells, increment_constant, rgb_values, dangerous_level, grid_image, fig)
+test.test_method(water_height, elevation_height, np.array([[x, y]]), EV_cells, increment_constant, rgb_values, dangerous_level, grid_image, fig)
 
 plt.axis('off')  # Turn off axis
 plt.show()  # Show the plot
