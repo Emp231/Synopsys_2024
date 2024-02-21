@@ -13,15 +13,18 @@ import io
 import caffé
 
 
-x = 0
-y = 0
+x = 16
+y = 41
 increment_constant = 1
 dangerous_level = 6 
 elevation_height = test.get_elevation_height()
+
 water_height = np.zeros([elevation_height.shape[0], elevation_height.shape[1]])
 EV_cells = np.zeros([elevation_height.shape[0], elevation_height.shape[1]])
 EV_cells[x][y] = 10
 rgb_values = np.full((elevation_height.shape[0], elevation_height.shape[1], 3), 255, dtype=int)
+boundary_map = test.get_boundary_map()
+caffé.pre_processing(elevation_height, boundary_map)
 # west = -121.868240
 # north = 37.686555
 # east = -121.861586
@@ -86,8 +89,8 @@ ax.set_ylim(0, grid_height)
 ax.axis('off')
 
 # Call your function for updating the grid image
-#test.recursion_checking(water_height, elevation_height, np.array([[x, y]]), EV_cells, increment_constant, rgb_values, dangerous_level, grid_image, fig)
-test.test_method(water_height, elevation_height, np.array([[x, y]]), EV_cells, increment_constant, rgb_values, dangerous_level, grid_image, fig)
+test.recursion_checking(water_height, elevation_height, np.array([[x, y]]), EV_cells, increment_constant, rgb_values, dangerous_level, grid_image, fig)
+#test.test_method(water_height, elevation_height, np.array([[x, y]]), EV_cells, increment_constant, rgb_values, dangerous_level, grid_image, fig)
 
 plt.axis('off')  # Turn off axis
 plt.show()  # Show the plot

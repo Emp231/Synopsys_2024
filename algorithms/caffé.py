@@ -19,7 +19,7 @@ def end_sim(EV_cells, threshold):
 def pre_processing(elevation_height, boundary_map):
     for i in range(boundary_map.shape[0]):
         for j in range(boundary_map.shape[1]):
-            if boundary_map[i][j] == 1:
+            if boundary_map[i][j] == 0:
                 elevation_height[i][j] += 100
 
 def is_ponding(water_height, elevation_height, x, y, EV_cell):
@@ -193,7 +193,6 @@ def is_partitioning_action(water_height, elevation_height, x, y, EV_cell):
     left_depth = -1
     up_depth = -1
     down_depth = -1
-
     if right_neighbor_cell_height != -1:
         right_depth = max(0, this_cell_height + increased_height - right_neighbor_cell_height)
     if left_neighbor_cell_height != -1:
@@ -209,7 +208,7 @@ def is_partitioning_action(water_height, elevation_height, x, y, EV_cell):
         if val != -1:
             sum_result += val
 
-    if right_depth != -1:
+    if right_depth != -1 and this_cell_height:
         weight = right_depth / sum_result
         EV_cell[x, find_neighbor(x,y,"right", elevation_height)] += weight * EV_cell[x,y]
     if left_depth != -1:
