@@ -1,0 +1,2432 @@
+{
+  "type": "FeatureCollection",
+  "generator": "overpass-turbo",
+  "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL.",
+  "timestamp": "2024-02-21T21:49:45Z",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616384665",
+        "addr:housenumber": "2151",
+        "addr:street": "Cameron Circle",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8664888,
+          37.6852996
+        ]
+      },
+      "id": "way/616384665"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616384666",
+        "addr:housenumber": "3731",
+        "addr:street": "Cameron Avenue",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8651278,
+          37.6853807
+        ]
+      },
+      "id": "way/616384666"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616384667",
+        "addr:housenumber": "2238",
+        "addr:street": "Cameron Circle",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8650914,
+          37.6856668
+        ]
+      },
+      "id": "way/616384667"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616384668",
+        "addr:housenumber": "2232",
+        "addr:street": "Cameron Circle",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8650936,
+          37.6859236
+        ]
+      },
+      "id": "way/616384668"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616384669",
+        "addr:housenumber": "2226",
+        "addr:street": "Cameron Circle",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8650827,
+          37.6861895
+        ]
+      },
+      "id": "way/616384669"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616384670",
+        "addr:housenumber": "2208",
+        "addr:street": "Cameron Circle",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8651076,
+          37.6865789
+        ]
+      },
+      "id": "way/616384670"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616384671",
+        "addr:housenumber": "2202",
+        "addr:street": "Cameron Circle",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8654911,
+          37.6865809
+        ]
+      },
+      "id": "way/616384671"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616384672",
+        "addr:housenumber": "2196",
+        "addr:street": "Cameron Circle",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8658081,
+          37.686583
+        ]
+      },
+      "id": "way/616384672"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616384673",
+        "addr:housenumber": "2172",
+        "addr:street": "Cameron Circle",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8658049,
+          37.6861875
+        ]
+      },
+      "id": "way/616384673"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616384674",
+        "addr:housenumber": "2166",
+        "addr:street": "Cameron Circle",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8658407,
+          37.6859326
+        ]
+      },
+      "id": "way/616384674"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616384675",
+        "addr:housenumber": "2160",
+        "addr:street": "Cameron Circle",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8658221,
+          37.6856691
+        ]
+      },
+      "id": "way/616384675"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616384676",
+        "addr:housenumber": "3745",
+        "addr:street": "Cameron Avenue",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8657654,
+          37.6853371
+        ]
+      },
+      "id": "way/616384676"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616384677",
+        "addr:housenumber": "3709",
+        "addr:street": "Cameron Avenue",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8644654,
+          37.685367
+        ]
+      },
+      "id": "way/616384677"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616384678",
+        "addr:housenumber": "2241",
+        "addr:street": "Cameron Circle",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8644813,
+          37.685653
+        ]
+      },
+      "id": "way/616384678"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616384679",
+        "addr:housenumber": "2235",
+        "addr:street": "Cameron Circle",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8644842,
+          37.6859077
+        ]
+      },
+      "id": "way/616384679"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616384680",
+        "addr:housenumber": "2229",
+        "addr:street": "Cameron Circle",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8644649,
+          37.6861994
+        ]
+      },
+      "id": "way/616384680"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616384681",
+        "addr:housenumber": "2223",
+        "addr:street": "Cameron Circle",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8644961,
+          37.6864573
+        ]
+      },
+      "id": "way/616384681"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616384689",
+        "addr:housenumber": "2181",
+        "addr:street": "Cameron Circle",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8664335,
+          37.6866631
+        ]
+      },
+      "id": "way/616384689"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616384690",
+        "addr:housenumber": "2175",
+        "addr:street": "Cameron Circle",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8664567,
+          37.6863745
+        ]
+      },
+      "id": "way/616384690"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616384691",
+        "addr:housenumber": "2169",
+        "addr:street": "Cameron Circle",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8664472,
+          37.6861174
+        ]
+      },
+      "id": "way/616384691"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616384692",
+        "addr:housenumber": "2163",
+        "addr:street": "Cameron Circle",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8664445,
+          37.6858387
+        ]
+      },
+      "id": "way/616384692"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616384693",
+        "addr:housenumber": "2157",
+        "addr:street": "Cameron Circle",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8664714,
+          37.6855702
+        ]
+      },
+      "id": "way/616384693"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385037",
+        "addr:housenumber": "1712",
+        "addr:street": "Martin Avenue",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8629366,
+          37.6838058
+        ]
+      },
+      "id": "way/616385037"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385039",
+        "addr:housenumber": "3737",
+        "addr:street": "Nichole Avenue",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8648,
+          37.6837896
+        ]
+      },
+      "id": "way/616385039"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385041",
+        "addr:housenumber": "3715",
+        "addr:street": "Nichole Avenue",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8643837,
+          37.6837897
+        ]
+      },
+      "id": "way/616385041"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385043",
+        "addr:housenumber": "3625",
+        "addr:street": "Kamp Drive",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8680685,
+          37.683787
+        ]
+      },
+      "id": "way/616385043"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385045",
+        "addr:housenumber": "3759",
+        "addr:street": "Nichole Avenue",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8652765,
+          37.6837533
+        ]
+      },
+      "id": "way/616385045"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385047",
+        "addr:housenumber": "1714",
+        "addr:street": "Equestrian Drive",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8665185,
+          37.6836983
+        ]
+      },
+      "id": "way/616385047"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385050",
+        "addr:housenumber": "1933",
+        "addr:street": "Palmer Drive",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8671419,
+          37.6836972
+        ]
+      },
+      "id": "way/616385050"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385052",
+        "addr:housenumber": "1932",
+        "addr:street": "Palmer Drive",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8677483,
+          37.6836701
+        ]
+      },
+      "id": "way/616385052"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385054",
+        "addr:housenumber": "3621",
+        "addr:street": "Kamp Drive",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8681246,
+          37.6836639
+        ]
+      },
+      "id": "way/616385054"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385057",
+        "addr:housenumber": "3617",
+        "addr:street": "Kamp Drive",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8681839,
+          37.6835484
+        ]
+      },
+      "id": "way/616385057"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385058",
+        "addr:housenumber": "1924",
+        "addr:street": "Palmer Drive",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8678405,
+          37.6834862
+        ]
+      },
+      "id": "way/616385058"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385063",
+        "addr:housenumber": "3424",
+        "addr:street": "Palmer Place",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8671671,
+          37.6834615
+        ]
+      },
+      "id": "way/616385063"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385071",
+        "addr:housenumber": "3724",
+        "addr:street": "Nichole Avenue",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.864757,
+          37.683351
+        ]
+      },
+      "id": "way/616385071"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385072",
+        "addr:housenumber": "3624",
+        "addr:street": "Nichole Avenue",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8637814,
+          37.6833895
+        ]
+      },
+      "id": "way/616385072"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385074",
+        "addr:housenumber": "3616",
+        "addr:street": "Nichole Avenue",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8633876,
+          37.6833447
+        ]
+      },
+      "id": "way/616385074"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385076",
+        "addr:housenumber": "1608",
+        "addr:street": "Martin Avenue",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8629188,
+          37.6832285
+        ]
+      },
+      "id": "way/616385076"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385080",
+        "addr:housenumber": "1616",
+        "addr:street": "Courtney Avenue",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8643922,
+          37.683218
+        ]
+      },
+      "id": "way/616385080"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385081",
+        "addr:housenumber": "1916",
+        "addr:street": "Palmer Drive",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8679512,
+          37.6832989
+        ]
+      },
+      "id": "way/616385081"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385082",
+        "addr:housenumber": "3768",
+        "addr:street": "Nichole Avenue",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8652364,
+          37.6832559
+        ]
+      },
+      "id": "way/616385082"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385083",
+        "addr:housenumber": "3448",
+        "addr:street": "Palmer Place",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8670705,
+          37.6832366
+        ]
+      },
+      "id": "way/616385083"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385091",
+        "addr:housenumber": "1908",
+        "addr:street": "Palmer Drive",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8680416,
+          37.6831348
+        ]
+      },
+      "id": "way/616385091"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385098",
+        "addr:housenumber": "3411",
+        "addr:street": "Palmer Place",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8675628,
+          37.6830394
+        ]
+      },
+      "id": "way/616385098"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385099",
+        "addr:housenumber": "3435",
+        "addr:street": "Palmer Place",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8672625,
+          37.6830303
+        ]
+      },
+      "id": "way/616385099"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385108",
+        "addr:housenumber": "1575",
+        "addr:street": "Courtney Avenue",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8638215,
+          37.6828146
+        ]
+      },
+      "id": "way/616385108"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385112",
+        "addr:housenumber": "3746",
+        "addr:street": "Nichole Avenue",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8651545,
+          37.6827889
+        ]
+      },
+      "id": "way/616385112"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385113",
+        "addr:housenumber": "1550",
+        "addr:street": "Courtney Avenue",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.864317,
+          37.6827973
+        ]
+      },
+      "id": "way/616385113"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385115",
+        "addr:housenumber": "1880",
+        "addr:street": "Palmer Drive",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8682039,
+          37.6828102
+        ]
+      },
+      "id": "way/616385115"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385116",
+        "addr:housenumber": "1606",
+        "addr:street": "Martin Avenue",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.862976,
+          37.6827325
+        ]
+      },
+      "id": "way/616385116"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385117",
+        "addr:housenumber": "1891",
+        "addr:street": "Palmer Drive",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.867657,
+          37.6827509
+        ]
+      },
+      "id": "way/616385117"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385122",
+        "addr:housenumber": "3809",
+        "addr:street": "Mohr Avenue",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8672775,
+          37.6826825
+        ]
+      },
+      "id": "way/616385122"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385125",
+        "addr:housenumber": "3805",
+        "addr:street": "Mohr Avenue",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8670436,
+          37.6826454
+        ]
+      },
+      "id": "way/616385125"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385127",
+        "addr:housenumber": "1862",
+        "addr:street": "Palmer Drive",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8682573,
+          37.682608
+        ]
+      },
+      "id": "way/616385127"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385135",
+        "addr:housenumber": "1873",
+        "addr:street": "Palmer Drive",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8676314,
+          37.6825471
+        ]
+      },
+      "id": "way/616385135"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385136",
+        "addr:housenumber": "3727",
+        "addr:street": "Mohr Avenue",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8659074,
+          37.6824785
+        ]
+      },
+      "id": "way/616385136"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385137",
+        "addr:housenumber": "1537",
+        "addr:street": "Courtney Avenue",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8637727,
+          37.6824979
+        ]
+      },
+      "id": "way/616385137"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385139",
+        "addr:housenumber": "1602",
+        "addr:street": "Martin Avenue",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8631509,
+          37.6824203
+        ]
+      },
+      "id": "way/616385139"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385142",
+        "addr:housenumber": "3813",
+        "addr:street": "Mohr Avenue",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8673619,
+          37.6822959
+        ]
+      },
+      "id": "way/616385142"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385143",
+        "addr:housenumber": "3715",
+        "addr:street": "Mohr Avenue",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8651482,
+          37.6823396
+        ]
+      },
+      "id": "way/616385143"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385145",
+        "addr:housenumber": "3707",
+        "addr:street": "Mohr Avenue",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8643479,
+          37.6822802
+        ]
+      },
+      "id": "way/616385145"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385146",
+        "addr:housenumber": "1844",
+        "addr:street": "Palmer Drive",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8682539,
+          37.6823134
+        ]
+      },
+      "id": "way/616385146"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385148",
+        "addr:housenumber": "3801",
+        "addr:street": "Mohr Avenue",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8670005,
+          37.6822602
+        ]
+      },
+      "id": "way/616385148"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385150",
+        "addr:housenumber": "3711",
+        "addr:street": "Mohr Avenue",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8647236,
+          37.6822945
+        ]
+      },
+      "id": "way/616385150"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385151",
+        "addr:housenumber": "1855",
+        "addr:street": "Palmer Drive",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.867762,
+          37.6822595
+        ]
+      },
+      "id": "way/616385151"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385155",
+        "addr:housenumber": "3693",
+        "addr:street": "Mohr Avenue",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8637487,
+          37.6822411
+        ]
+      },
+      "id": "way/616385155"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385163",
+        "addr:housenumber": "1826",
+        "addr:street": "Palmer Drive",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8680561,
+          37.682204
+        ]
+      },
+      "id": "way/616385163"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385357",
+        "addr:housenumber": "2082",
+        "addr:street": "Palmer Drive",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8675674,
+          37.6864784
+        ]
+      },
+      "id": "way/616385357"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385360",
+        "addr:housenumber": "2081",
+        "addr:street": "Palmer Drive",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.867037,
+          37.6864726
+        ]
+      },
+      "id": "way/616385360"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385362",
+        "addr:housenumber": "3783",
+        "addr:street": "Kamp Drive",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8679765,
+          37.6864518
+        ]
+      },
+      "id": "way/616385362"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385363",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.862846,
+          37.6864631
+        ]
+      },
+      "id": "way/616385363"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385367",
+        "addr:housenumber": "3611",
+        "addr:street": "Diablo Court",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8635307,
+          37.6863696
+        ]
+      },
+      "id": "way/616385367"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385369",
+        "addr:housenumber": "2020",
+        "addr:street": "Martin Avenue",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8630089,
+          37.6863421
+        ]
+      },
+      "id": "way/616385369"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385372",
+        "addr:housenumber": "3775",
+        "addr:street": "Kamp Drive",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8679429,
+          37.6863349
+        ]
+      },
+      "id": "way/616385372"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385373",
+        "addr:housenumber": "2070",
+        "addr:street": "Palmer Drive",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8675695,
+          37.6862693
+        ]
+      },
+      "id": "way/616385373"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385382",
+        "addr:housenumber": "2065",
+        "addr:street": "Palmer Drive",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8670404,
+          37.6861901
+        ]
+      },
+      "id": "way/616385382"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385383",
+        "addr:housenumber": "3767",
+        "addr:street": "Kamp Drive",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.867924,
+          37.6862083
+        ]
+      },
+      "id": "way/616385383"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385388",
+        "addr:housenumber": "3622",
+        "addr:street": "Diablo Court",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8638112,
+          37.6860848
+        ]
+      },
+      "id": "way/616385388"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385389",
+        "addr:housenumber": "2058",
+        "addr:street": "Palmer Drive",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8675734,
+          37.6860724
+        ]
+      },
+      "id": "way/616385389"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385390",
+        "addr:housenumber": "3759",
+        "addr:street": "Kamp Drive",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.867929,
+          37.6860806
+        ]
+      },
+      "id": "way/616385390"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385400",
+        "addr:housenumber": "3751",
+        "addr:street": "Kamp Drive",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8679235,
+          37.6859451
+        ]
+      },
+      "id": "way/616385400"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385402",
+        "addr:housenumber": "2049",
+        "addr:street": "Palmer Drive",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8670408,
+          37.6858656
+        ]
+      },
+      "id": "way/616385402"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385404",
+        "addr:housenumber": "2046",
+        "addr:street": "Palmer Drive",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8675708,
+          37.6858658
+        ]
+      },
+      "id": "way/616385404"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385408",
+        "addr:housenumber": "1992",
+        "addr:street": "Martin Avenue",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8629457,
+          37.6858259
+        ]
+      },
+      "id": "way/616385408"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385410",
+        "addr:housenumber": "3614",
+        "addr:street": "Diablo Court",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8635534,
+          37.6858092
+        ]
+      },
+      "id": "way/616385410"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385412",
+        "addr:housenumber": "3743",
+        "addr:street": "Kamp Drive",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8679235,
+          37.6858294
+        ]
+      },
+      "id": "way/616385412"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385419",
+        "addr:housenumber": "3735",
+        "addr:street": "Kamp Drive",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8679293,
+          37.6857042
+        ]
+      },
+      "id": "way/616385419"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385420",
+        "addr:housenumber": "2034",
+        "addr:street": "Palmer Drive",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8675803,
+          37.6856507
+        ]
+      },
+      "id": "way/616385420"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385426",
+        "addr:housenumber": "2033",
+        "addr:street": "Palmer Drive",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8670478,
+          37.6855601
+        ]
+      },
+      "id": "way/616385426"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385428",
+        "addr:housenumber": "3727",
+        "addr:street": "Kamp Drive",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8679248,
+          37.685579
+        ]
+      },
+      "id": "way/616385428"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385437",
+        "addr:housenumber": "2022",
+        "addr:street": "Palmer Drive",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8675898,
+          37.6854455
+        ]
+      },
+      "id": "way/616385437"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385438",
+        "addr:housenumber": "3623",
+        "addr:street": "Cameron Avenue",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8636778,
+          37.6854249
+        ]
+      },
+      "id": "way/616385438"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385440",
+        "addr:housenumber": "3719",
+        "addr:street": "Kamp Drive",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8679235,
+          37.6854558
+        ]
+      },
+      "id": "way/616385440"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385446",
+        "addr:housenumber": "3611",
+        "addr:street": "Cameron Avenue",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8630032,
+          37.6853143
+        ]
+      },
+      "id": "way/616385446"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385447",
+        "addr:housenumber": "3711",
+        "addr:street": "Kamp Drive",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8679436,
+          37.6853402
+        ]
+      },
+      "id": "way/616385447"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385448",
+        "addr:housenumber": "2017",
+        "addr:street": "Palmer Drive",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8670454,
+          37.6852747
+        ]
+      },
+      "id": "way/616385448"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385451",
+        "addr:housenumber": "2010",
+        "addr:street": "Palmer Drive",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8675832,
+          37.6852399
+        ]
+      },
+      "id": "way/616385451"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385458",
+        "addr:housenumber": "3703",
+        "addr:street": "Kamp Drive",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8679261,
+          37.6852107
+        ]
+      },
+      "id": "way/616385458"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385474",
+        "addr:housenumber": "3710",
+        "addr:street": "Cameron Avenue",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8638247,
+          37.6848208
+        ]
+      },
+      "id": "way/616385474"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385475",
+        "addr:housenumber": "1980",
+        "addr:street": "Palmer Drive",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8675814,
+          37.6848849
+        ]
+      },
+      "id": "way/616385475"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385478",
+        "addr:housenumber": "3661",
+        "addr:street": "Kamp Drive",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8679328,
+          37.6848986
+        ]
+      },
+      "id": "way/616385478"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385479",
+        "addr:housenumber": "1796",
+        "addr:street": "Equestrian Drive",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8664085,
+          37.6848361
+        ]
+      },
+      "id": "way/616385479"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385481",
+        "addr:housenumber": "1844",
+        "addr:street": "Martin Avenue",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8629239,
+          37.6848169
+        ]
+      },
+      "id": "way/616385481"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385482",
+        "addr:housenumber": "1981",
+        "addr:street": "Palmer Drive",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8670427,
+          37.6848289
+        ]
+      },
+      "id": "way/616385482"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385483",
+        "addr:housenumber": "3736",
+        "addr:street": "Cameron Avenue",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8652273,
+          37.6848344
+        ]
+      },
+      "id": "way/616385483"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385485",
+        "addr:housenumber": "3708",
+        "addr:street": "Cameron Avenue",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8645233,
+          37.6848149
+        ]
+      },
+      "id": "way/616385485"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385487",
+        "addr:housenumber": "3618",
+        "addr:street": "Cameron Avenue",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8632935,
+          37.6847979
+        ]
+      },
+      "id": "way/616385487"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385490",
+        "addr:housenumber": "3750",
+        "addr:street": "Cameron Avenue",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.865728,
+          37.6847373
+        ]
+      },
+      "id": "way/616385490"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385495",
+        "addr:housenumber": "3657",
+        "addr:street": "Kamp Drive",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8679463,
+          37.6847702
+        ]
+      },
+      "id": "way/616385495"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385497",
+        "addr:housenumber": "1972",
+        "addr:street": "Palmer Drive",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8675802,
+          37.6846948
+        ]
+      },
+      "id": "way/616385497"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385499",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8634885,
+          37.6847012
+        ]
+      },
+      "id": "way/616385499"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385503",
+        "addr:housenumber": "3653",
+        "addr:street": "Kamp Drive",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8679382,
+          37.6846567
+        ]
+      },
+      "id": "way/616385503"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385506",
+        "addr:housenumber": "1969",
+        "addr:street": "Palmer Drive",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8670468,
+          37.6845285
+        ]
+      },
+      "id": "way/616385506"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385510",
+        "addr:housenumber": "1768",
+        "addr:street": "Equestrian Drive",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8664148,
+          37.6844653
+        ]
+      },
+      "id": "way/616385510"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385512",
+        "addr:housenumber": "3649",
+        "addr:street": "Kamp Drive",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8679462,
+          37.6845325
+        ]
+      },
+      "id": "way/616385512"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385513",
+        "addr:housenumber": "1964",
+        "addr:street": "Palmer Drive",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8675866,
+          37.684494
+        ]
+      },
+      "id": "way/616385513"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385515",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8647505,
+          37.6844546
+        ]
+      },
+      "id": "way/616385515"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385525",
+        "addr:housenumber": "3645",
+        "addr:street": "Kamp Drive",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8679422,
+          37.6844147
+        ]
+      },
+      "id": "way/616385525"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385529",
+        "addr:housenumber": "1808;1814",
+        "addr:street": "Courtney Avenue",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8643867,
+          37.6842882
+        ]
+      },
+      "id": "way/616385529"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385530",
+        "addr:housenumber": "1956",
+        "addr:street": "Palmer Drive",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8675927,
+          37.6842826
+        ]
+      },
+      "id": "way/616385530"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385532",
+        "addr:housenumber": "1781",
+        "addr:street": "Courtney Avenue",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8637499,
+          37.6842668
+        ]
+      },
+      "id": "way/616385532"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385533",
+        "addr:housenumber": "3722",
+        "addr:street": "Cameron Avenue",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8651462,
+          37.6842608
+        ]
+      },
+      "id": "way/616385533"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385534",
+        "addr:housenumber": "3641",
+        "addr:street": "Kamp Drive",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8679355,
+          37.6842895
+        ]
+      },
+      "id": "way/616385534"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385535",
+        "addr:housenumber": "1776",
+        "addr:street": "Martin Avenue",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8629758,
+          37.6842361
+        ]
+      },
+      "id": "way/616385535"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385536",
+        "addr:housenumber": "1755",
+        "addr:street": "Equestrian Drive",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8658378,
+          37.6842226
+        ]
+      },
+      "id": "way/616385536"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385538",
+        "addr:housenumber": "1957",
+        "addr:street": "Palmer Drive",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8670571,
+          37.6842247
+        ]
+      },
+      "id": "way/616385538"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385542",
+        "addr:housenumber": "1742",
+        "addr:street": "Equestrian Drive",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8664991,
+          37.6841587
+        ]
+      },
+      "id": "way/616385542"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385546",
+        "addr:housenumber": "3637",
+        "addr:street": "Kamp Drive",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8679503,
+          37.6841562
+        ]
+      },
+      "id": "way/616385546"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385554",
+        "addr:housenumber": "1948",
+        "addr:street": "Palmer Drive",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8676243,
+          37.684056
+        ]
+      },
+      "id": "way/616385554"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385556",
+        "addr:housenumber": "3633",
+        "addr:street": "Kamp Drive",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8679645,
+          37.6840264
+        ]
+      },
+      "id": "way/616385556"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385559",
+        "addr:housenumber": "1945",
+        "addr:street": "Palmer Drive",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8670839,
+          37.6839483
+        ]
+      },
+      "id": "way/616385559"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385563",
+        "addr:housenumber": "1707",
+        "addr:street": "Equestrian Drive",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8658539,
+          37.6838544
+        ]
+      },
+      "id": "way/616385563"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385564",
+        "addr:housenumber": "3629",
+        "addr:street": "Kamp Drive",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.868014,
+          37.6839052
+        ]
+      },
+      "id": "way/616385564"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385565",
+        "addr:housenumber": "1940",
+        "addr:street": "Palmer Drive",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8676696,
+          37.6838629
+        ]
+      },
+      "id": "way/616385565"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/616385568",
+        "addr:housenumber": "1717",
+        "addr:street": "Courtney Avenue",
+        "building": "house",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8637687,
+          37.6838532
+        ]
+      },
+      "id": "way/616385568"
+    }
+  ]
+}
