@@ -1,0 +1,251 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.61.5 4133829e",
+  "osm3s": {
+    "timestamp_osm_base": "2024-02-22T05:06:30Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+    {
+      "type": "way",
+      "id": 6327138,
+      "tags": {
+        "highway": "residential",
+        "name": "Palmer Place",
+        "sidewalk": "both",
+        "tiger:cfcc": "A41",
+        "tiger:county": "Alameda, CA",
+        "tiger:name_base": "Palmer",
+        "tiger:name_type": "Pl",
+        "tiger:reviewed": "no"
+      }
+    },
+    {
+      "type": "way",
+      "id": 6342622,
+      "tags": {
+        "highway": "residential",
+        "name": "Equestrian Drive",
+        "tiger:cfcc": "A41",
+        "tiger:county": "Alameda, CA",
+        "tiger:name_base": "Equestrian",
+        "tiger:name_type": "Dr",
+        "tiger:reviewed": "no"
+      }
+    },
+    {
+      "type": "way",
+      "id": 6361253,
+      "tags": {
+        "highway": "residential",
+        "name": "Nichole Avenue",
+        "tiger:cfcc": "A41",
+        "tiger:county": "Alameda, CA",
+        "tiger:name_base": "Nicole",
+        "tiger:name_type": "Ave",
+        "tiger:reviewed": "no"
+      }
+    },
+    {
+      "type": "way",
+      "id": 6386624,
+      "tags": {
+        "highway": "residential",
+        "name": "Courtney Avenue",
+        "tiger:cfcc": "A41",
+        "tiger:county": "Alameda, CA",
+        "tiger:name_base": "Courtney",
+        "tiger:name_type": "Ave"
+      }
+    },
+    {
+      "type": "way",
+      "id": 6390709,
+      "tags": {
+        "highway": "residential",
+        "name": "Diablo Court",
+        "tiger:cfcc": "A41",
+        "tiger:county": "Alameda, CA",
+        "tiger:name_base": "Diablo",
+        "tiger:name_type": "Ct",
+        "tiger:reviewed": "no",
+        "tiger:separated": "no",
+        "tiger:source": "tiger_import_dch_v0.6_20070809",
+        "tiger:tlid": "125064803"
+      }
+    },
+    {
+      "type": "way",
+      "id": 6397732,
+      "tags": {
+        "highway": "residential",
+        "name": "Bruce Drive",
+        "sidewalk": "both",
+        "tiger:cfcc": "A41",
+        "tiger:county": "Alameda, CA",
+        "tiger:name_base": "Bruce",
+        "tiger:name_type": "Dr",
+        "tiger:reviewed": "no"
+      }
+    },
+    {
+      "type": "way",
+      "id": 6398503,
+      "tags": {
+        "highway": "residential",
+        "name": "Cameron Avenue",
+        "tiger:cfcc": "A41",
+        "tiger:county": "Alameda, CA",
+        "tiger:name_base": "Cameron",
+        "tiger:name_type": "Ave"
+      }
+    },
+    {
+      "type": "way",
+      "id": 6401892,
+      "tags": {
+        "highway": "residential",
+        "name": "Martin Avenue",
+        "tiger:cfcc": "A41",
+        "tiger:county": "Alameda, CA",
+        "tiger:name_base": "Martin",
+        "tiger:name_type": "Ave",
+        "tiger:reviewed": "no"
+      }
+    },
+    {
+      "type": "way",
+      "id": 6405472,
+      "tags": {
+        "highway": "residential",
+        "name": "Palmer Drive",
+        "sidewalk": "both",
+        "tiger:cfcc": "A41",
+        "tiger:county": "Alameda, CA",
+        "tiger:name_base": "Palmer",
+        "tiger:name_type": "Dr",
+        "tiger:reviewed": "no"
+      }
+    },
+    {
+      "type": "way",
+      "id": 461417113,
+      "tags": {
+        "bicycle": "designated",
+        "foot": "designated",
+        "highway": "cycleway",
+        "lit": "no",
+        "surface": "asphalt",
+        "width": "2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 461512467,
+      "tags": {
+        "highway": "residential",
+        "name": "Cameron Avenue",
+        "sidewalk": "both",
+        "tiger:cfcc": "A41",
+        "tiger:county": "Alameda, CA",
+        "tiger:name_base": "Cameron",
+        "tiger:name_type": "Ave",
+        "tiger:reviewed": "no"
+      }
+    },
+    {
+      "type": "way",
+      "id": 501021073,
+      "tags": {
+        "highway": "residential",
+        "name": "Cameron Circle"
+      }
+    },
+    {
+      "type": "way",
+      "id": 579125866,
+      "tags": {
+        "highway": "footway"
+      }
+    },
+    {
+      "type": "way",
+      "id": 691016881,
+      "tags": {
+        "highway": "residential"
+      }
+    },
+    {
+      "type": "way",
+      "id": 733209923,
+      "tags": {
+        "highway": "service"
+      }
+    },
+    {
+      "type": "way",
+      "id": 821751274,
+      "tags": {
+        "access": "private",
+        "highway": "service",
+        "service": "driveway"
+      }
+    },
+    {
+      "type": "way",
+      "id": 821751275,
+      "tags": {
+        "access": "private",
+        "highway": "service",
+        "service": "driveway"
+      }
+    },
+    {
+      "type": "way",
+      "id": 913343336,
+      "tags": {
+        "highway": "service",
+        "service": "driveway"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1066495803,
+      "tags": {
+        "bicycle": "designated",
+        "crossing": "uncontrolled",
+        "crossing:markings": "lines",
+        "cycleway": "crossing",
+        "foot": "designated",
+        "highway": "cycleway"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1066495804,
+      "tags": {
+        "bicycle": "designated",
+        "foot": "designated",
+        "highway": "cycleway"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1132633940,
+      "tags": {
+        "bicycle": "designated",
+        "foot": "designated",
+        "highway": "cycleway"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1132633941,
+      "tags": {
+        "bicycle": "designated",
+        "foot": "designated",
+        "highway": "cycleway"
+      }
+    }
+  ]
+}

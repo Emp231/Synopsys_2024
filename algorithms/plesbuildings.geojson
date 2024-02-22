@@ -2,7 +2,7 @@
   "type": "FeatureCollection",
   "generator": "overpass-turbo",
   "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL.",
-  "timestamp": "2024-02-21T21:49:45Z",
+  "timestamp": "2024-02-22T05:04:13Z",
   "features": [
     {
       "type": "Feature",
@@ -309,24 +309,6 @@
         ]
       },
       "id": "way/616384681"
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "@id": "way/616384689",
-        "addr:housenumber": "2181",
-        "addr:street": "Cameron Circle",
-        "building": "house",
-        "@geometry": "center"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -121.8664335,
-          37.6866631
-        ]
-      },
-      "id": "way/616384689"
     },
     {
       "type": "Feature",
@@ -871,24 +853,6 @@
     {
       "type": "Feature",
       "properties": {
-        "@id": "way/616385115",
-        "addr:housenumber": "1880",
-        "addr:street": "Palmer Drive",
-        "building": "house",
-        "@geometry": "center"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -121.8682039,
-          37.6828102
-        ]
-      },
-      "id": "way/616385115"
-    },
-    {
-      "type": "Feature",
-      "properties": {
         "@id": "way/616385116",
         "addr:housenumber": "1606",
         "addr:street": "Martin Avenue",
@@ -957,24 +921,6 @@
         ]
       },
       "id": "way/616385125"
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "@id": "way/616385127",
-        "addr:housenumber": "1862",
-        "addr:street": "Palmer Drive",
-        "building": "house",
-        "@geometry": "center"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -121.8682573,
-          37.682608
-        ]
-      },
-      "id": "way/616385127"
     },
     {
       "type": "Feature",
@@ -1101,24 +1047,6 @@
         ]
       },
       "id": "way/616385145"
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "@id": "way/616385146",
-        "addr:housenumber": "1844",
-        "addr:street": "Palmer Drive",
-        "building": "house",
-        "@geometry": "center"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -121.8682539,
-          37.6823134
-        ]
-      },
-      "id": "way/616385146"
     },
     {
       "type": "Feature",
