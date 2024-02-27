@@ -21,10 +21,73 @@ elevation_height = test.get_elevation_height()
 
 water_height = np.zeros([elevation_height.shape[0], elevation_height.shape[1]])
 EV_cells = np.zeros([elevation_height.shape[0], elevation_height.shape[1]])
-EV_cells[x][y] = 10
+EV_cells[16,3] = 15
+EV_cells[16,2] = 15
+EV_cells[16,1] = 15
+EV_cells[16,4] = 15
+EV_cells[16,5] = 15
+EV_cells[16,6] = 15
+EV_cells[16,7] = 15
+EV_cells[16,8] = 15
+EV_cells[16,9] = 15
+EV_cells[16,10] = 15
+EV_cells[16,11] = 15
+EV_cells[16,12] = 15
+EV_cells[16,13] = 15
+EV_cells[16,14] = 15
+EV_cells[16,15] = 15
+EV_cells[16,16] = 15
+EV_cells[16,17] = 15
+EV_cells[16,18] = 15
+EV_cells[16,19] = 15
+EV_cells[16,20] = 15
+EV_cells[15,20] = 15
+EV_cells[15,21] = 15
+EV_cells[15,22] = 15
+EV_cells[15,23] = 15
+EV_cells[15,24] = 15
+EV_cells[15,25] = 15
+EV_cells[15,26] = 15
+EV_cells[15,27] = 15
+EV_cells[16,27] = 15
+EV_cells[16,28] = 15
+EV_cells[16,29] = 15
+EV_cells[16,30] = 15
+EV_cells[16,31] = 15
+EV_cells[16,32] = 15
+EV_cells[15,32] = 15
+EV_cells[15,33] = 15
+EV_cells[15,34] = 15
+EV_cells[15,35] = 15
+EV_cells[15,36] = 15
+EV_cells[15,37] = 15
+EV_cells[15,38] = 15
+EV_cells[15,39] = 15
+EV_cells[15,40] = 15
+EV_cells[15,41] = 15
+EV_cells[16,41] = 15
+EV_cells[16,42] = 15
+EV_cells[16,43] = 15
+EV_cells[16,44] = 15
+EV_cells[16,45] = 15
+EV_cells[16,46] = 15
+EV_cells[16,47] = 15
+EV_cells[16,48] = 15
+EV_cells[16,49] = 15
+EV_cells[16,50] = 15
+EV_cells[16,51] = 15
+EV_cells[16,52] = 15
+EV_cells[16,53] = 15
+EV_cells[16,54] = 15
+EV_cells[16,55] = 15
+EV_cells[16,56] = 15
+EV_cells[16,57] = 15
+EV_cells[16,58] = 15
+EV_cells[16,59] = 15
+EV_cells[16,60] = 15
+EV_cells[16,61] = 15
 rgb_values = np.full((elevation_height.shape[0], elevation_height.shape[1], 3), 255, dtype=int)
 boundary_map = test.get_boundary_map()
-caffé.pre_processing(elevation_height, boundary_map)
 # west = -121.868240
 # north = 37.686555
 # east = -121.861586
@@ -89,7 +152,8 @@ ax.set_ylim(0, grid_height)
 ax.axis('off')
 
 # Call your function for updating the grid image
-test.recursion_checking(water_height, elevation_height, np.array([[x, y]]), EV_cells, increment_constant, rgb_values, dangerous_level, grid_image, fig)
+test.final_image_recursion(water_height, elevation_height, np.array([[x, y]]), EV_cells, increment_constant, rgb_values, dangerous_level, grid_image, fig)
+#test.final_image_recursion(water_height, elevation_height, np.array([[x, y]]), EV_cells, increment_constant, rgb_values, dangerous_level, grid_image, fig)
 #test.test_method(water_height, elevation_height, np.array([[x, y]]), EV_cells, increment_constant, rgb_values, dangerous_level, grid_image, fig)
 
 plt.axis('off')  # Turn off axis

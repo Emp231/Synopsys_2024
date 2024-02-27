@@ -857,7 +857,6 @@ def get_elevation_height():
     return elevation_height
 
 def test_method(water_height, elevation_height, list_points, EV_cells, increment_constant, rgb_values, dangerous_level, grid_image, fig):
-        
     rgb_values[EV_cells >= dangerous_level] = [255, 0, 255]
     rgb_values[(EV_cells < dangerous_level) & (EV_cells > 0)] = [0, 0, 255]
     rgb_values[EV_cells == 0] = [255, 255, 255]
