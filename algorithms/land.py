@@ -11,13 +11,14 @@ import plotly.graph_objects as go
 from staticmap import StaticMap, CircleMarker
 import io
 import caffé
+import inputs
 
 
 x = 16
 y = 41
 increment_constant = 1
 dangerous_level = 6 
-elevation_height = test.get_elevation_height()
+elevation_height = inputs.get_elevation_height()
 
 water_height = np.zeros([elevation_height.shape[0], elevation_height.shape[1]])
 EV_cells = np.zeros([elevation_height.shape[0], elevation_height.shape[1]])
@@ -128,8 +129,9 @@ boundary_map = test.get_boundary_map()
 
 # plt.show()
 
-image_path = 'plesOSM.png'
-image = plt.imread(image_path)
+# image_path = 'plesOSM.png'
+# image = plt.imread(image_path)
+image = inputs.get_image()
 
 # Set up the grid plot
 grid_width = elevation_height.shape[1]
