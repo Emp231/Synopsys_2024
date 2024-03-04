@@ -666,10 +666,14 @@ def final_image_recursion(water_height, elevation_height, list_points, EV_cells,
         new_list_points = np.empty((0, 2), dtype=object)
 
         if caffé.end_sim(EV_cells, 2):
-            rgb_values[final_array >= dangerous_level] = [255, 0, 255]
-            rgb_values[(final_array < dangerous_level) & (final_array > 0)] = [0, 0, 255]
-            rgb_values[final_array == 0] = [255, 255, 255]
-
+            # rgb_values[final_array >= dangerous_level] = [255, 0, 255]
+            # rgb_values[(final_array < dangerous_level) & (final_array > 0)] = [0, 0, 255]
+            # rgb_values[final_array == 0] = [255, 255, 255]
+            rgb_values[final_array >= 10] = [11,31,86]
+            rgb_values[(final_array < 10) & (final_array >= 1)] = [23,63,172]
+            rgb_values[(final_array >= 0.5) & (final_array < 1)] = [64,108,229]
+            rgb_values[(final_array >= 0.05) & (final_array < 0.5)] = [150,174,240]
+            rgb_values[(final_array >= 0) & (final_array < 0.05)] = [237,241,252]
             alpha_values = np.where(final_array == 0, 0.0, 1.0)  # Set alpha to 0.0 for EV_cells == 0, 1.0 otherwise
             alpha_values = np.expand_dims(alpha_values, axis=-1)
 
@@ -750,7 +754,6 @@ def final_image_recursion(water_height, elevation_height, list_points, EV_cells,
                 if EV_cells[cur_x][cur_y] > 0:
                     new_list_points = np.vstack([new_list_points, [cur_x, cur_y]])
             np.set_printoptions(precision=8, suppress=True)  # Set precision and suppress small values
-        
         # Update the imshow object with new colors
 
 
@@ -857,6 +860,8 @@ def get_elevation_height():
     return elevation_height
 
 def test_method(water_height, elevation_height, list_points, EV_cells, increment_constant, rgb_values, dangerous_level, grid_image, fig):
+
+    EV_cells[10, 10] = 100
     rgb_values[EV_cells >= dangerous_level] = [255, 0, 255]
     rgb_values[(EV_cells < dangerous_level) & (EV_cells > 0)] = [0, 0, 255]
     rgb_values[EV_cells == 0] = [255, 255, 255]
