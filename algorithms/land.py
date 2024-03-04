@@ -1,14 +1,14 @@
-import pandas as pd
+#import pandas as pd
 import numpy as np
-import plotly.express as px
+#import plotly.express as px
 import random
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
 import test
-from skimage.transform import resize
+#from skimage.transform import resize
 from PIL import Image, ImageDraw
-import plotly.graph_objects as go
-from staticmap import StaticMap, CircleMarker
+#import plotly.graph_objects as go
+#from staticmap import StaticMap, CircleMarker
 import io
 import caffé
 import inputs

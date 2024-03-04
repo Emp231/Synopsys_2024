@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-input_asc = "/Users/siddharthbalaji/Documents/Github_Home/Untitled/Synopsys_2024/.asc files/fremont_updated.asc" # Add directory to .asc file
+input_asc = "C:/Users/fastp/OneDrive/Documents/GitHub/Synopsys_2024/.asc files/fremont_updated.asc" # Add directory to .asc file
 
 def set_elevation_height(input_asc):
     with open(input_asc, 'r') as file:
@@ -17,7 +17,7 @@ elevation_height = set_elevation_height(input_asc)
 def get_elevation_height():
     return elevation_height
 
-image_path = 'plesOSM.png'
+image_path = "C:/Users/fastp/OneDrive/Documents/GitHub/Synopsys_2024/algorithms/plesOSM.png"
 image = plt.imread(image_path)
 
 def get_image():
