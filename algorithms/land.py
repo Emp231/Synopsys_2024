@@ -14,17 +14,18 @@ import caffé
 import inputs
 
 
-x = 16
-y = 2
+x = 32
+y = 23
 increment_constant = 1
 dangerous_level = 6 
 elevation_height = inputs.get_elevation_height()
 
 water_height = np.zeros([elevation_height.shape[0], elevation_height.shape[1]])
 EV_cells = np.zeros([elevation_height.shape[0], elevation_height.shape[1]])
-#EV_cells[16,3] = 15
-EV_cells[16,2] = 10
-EV_cells[16,1] = 10
+EV_cells[x, y] = 10
+# EV_cells[16,3] = 15
+# EV_cells[16,2] = 10
+# EV_cells[16,1] = 10
 # EV_cells[16,4] = 10
 # EV_cells[16,5] = 10
 # EV_cells[16,6] = 10
@@ -154,9 +155,12 @@ ax.set_ylim(0, grid_height)
 ax.axis('off')
 
 # Call your function for updating the grid image
+# test.final_image_recursion(water_height, elevation_height, np.array([[x, y]]), EV_cells, increment_constant, rgb_values, dangerous_level, grid_image, fig)
+def get_EV_cells():
+    return EV_cells
+
 test.final_image_recursion(water_height, elevation_height, np.array([[x, y]]), EV_cells, increment_constant, rgb_values, dangerous_level, grid_image, fig)
-#test.final_image_recursion(water_height, elevation_height, np.array([[x, y]]), EV_cells, increment_constant, rgb_values, dangerous_level, grid_image, fig)
-#test.test_method(water_height, elevation_height, np.array([[x, y]]), EV_cells, increment_constant, rgb_values, dangerous_level, grid_image, fig)
+# test.test_method(water_height, elevation_height, np.array([[x, y]]), EV_cells, increment_constant, rgb_values, dangerous_level, grid_image, fig)
 
 plt.axis('off')  # Turn off axis
 plt.show()  # Show the plot

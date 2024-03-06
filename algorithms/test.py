@@ -665,10 +665,11 @@ def final_image_recursion(water_height, elevation_height, list_points, EV_cells,
     while list_points.size > 0:
         new_list_points = np.empty((0, 2), dtype=object)
 
-        if caffé.end_sim(EV_cells, 2):
+        if caffé.end_sim(EV_cells, 0.1):
             # rgb_values[final_array >= dangerous_level] = [255, 0, 255]
             # rgb_values[(final_array < dangerous_level) & (final_array > 0)] = [0, 0, 255]
             # rgb_values[final_array == 0] = [255, 255, 255]
+
             rgb_values[final_array >= 10] = [11,31,86]
             rgb_values[(final_array < 10) & (final_array >= 1)] = [23,63,172]
             rgb_values[(final_array >= 0.5) & (final_array < 1)] = [64,108,229]
@@ -686,7 +687,7 @@ def final_image_recursion(water_height, elevation_height, list_points, EV_cells,
             fig.canvas.draw()
             plt.pause(0.1)  # Adjust the delay as needed
 
-            break
+            return EV_cells
     
         for point in list_points:
             cur_x = np.atleast_1d(point)[0]
@@ -861,7 +862,7 @@ def get_elevation_height():
 
 def test_method(water_height, elevation_height, list_points, EV_cells, increment_constant, rgb_values, dangerous_level, grid_image, fig):
 
-    EV_cells[10, 10] = 100
+    EV_cells[32, 23] = 100
     rgb_values[EV_cells >= dangerous_level] = [255, 0, 255]
     rgb_values[(EV_cells < dangerous_level) & (EV_cells > 0)] = [0, 0, 255]
     rgb_values[EV_cells == 0] = [255, 255, 255]
