@@ -688,7 +688,7 @@ def final_image_recursion(water_height, elevation_height, list_points, EV_cells,
             fig.canvas.draw()
             plt.pause(0.1)  # Adjust the delay as needed
 
-            return EV_cells
+            return final_array
     
         for point in list_points:
             cur_x = np.atleast_1d(point)[0]
