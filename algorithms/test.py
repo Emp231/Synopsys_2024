@@ -29,7 +29,8 @@ def select_asc_file():
 
 #user_x = int(input("Enter x value: "))
 
-input_asc = "C:/Users/fastp/OneDrive/Documents/GitHub/Synopsys_2024/.asc files/fremont_updated.asc" # Add directory to .asc file
+#input_asc = "C:/Users/fastp/OneDrive/Documents/GitHub/Synopsys_2024/.asc files/fremont_updated.asc" # Add directory to .asc file
+input_asc = "/Users/siddharthbalaji/Documents/Github_Home/Untitled/Synopsys_2024/.asc files/fremont_updated.asc"
 #input_asc = select_asc_file()
 
 
