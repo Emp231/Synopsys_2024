@@ -159,7 +159,7 @@ ax.axis('off')
 def get_EV_cells():
     return EV_cells
 
-test.final_image_recursion(water_height, elevation_height, np.array([[x, y]]), EV_cells, increment_constant, rgb_values, dangerous_level, grid_image, fig)
+final_array = test.final_image_recursion(water_height, elevation_height, np.array([[x, y]]), EV_cells, increment_constant, rgb_values, dangerous_level, grid_image, fig)
 # test.test_method(water_height, elevation_height, np.array([[x, y]]), EV_cells, increment_constant, rgb_values, dangerous_level, grid_image, fig)
 
 plt.axis('off')  # Turn off axis
