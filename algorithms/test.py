@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 import caffé
 import tkinter as tk
 from tkinter import filedialog
+import optimization
 
 # /Users/siddharthbalaji/Documents/Github_Home/Untitled/Synopsys_2024/.asc files/pajaro2nd.asc
 
@@ -29,7 +30,7 @@ def select_asc_file():
 
 #user_x = int(input("Enter x value: "))
 
-input_asc = "C:/Users/fastp/OneDrive/Documents/GitHub/Synopsys_2024/.asc files/fremont_updated.asc" # Add directory to .asc file
+input_asc = "C:/Users/saman/OneDrive/Documents/GitHub/Synopsys_2024/.asc files/fremont_updated.asc" # Add directory to .asc file
 #input_asc = select_asc_file()
 
 
@@ -48,6 +49,7 @@ y = 0
 # ])
 
 elevation_height = set_elevation_height(input_asc)
+final_water_heights = []
 #caffé.pre_processing(elevation_height, boundary_map)
 boundary_map = np.zeros((elevation_height.shape[0], elevation_height.shape[1]))
 boundary_map[0,10] = 1
@@ -475,6 +477,10 @@ grid_height = elevation_height.shape[0]
 # ax.set_xlim(0, grid_width) 
 # ax.set_ylim(0, grid_height)
 
+def update_water_levels(array):
+    global final_water_heights
+    final_water_heights = array
+
 def get_boundary_map():
     return boundary_map
 
@@ -669,6 +675,9 @@ def final_image_recursion(water_height, elevation_height, list_points, EV_cells,
             # rgb_values[final_array >= dangerous_level] = [255, 0, 255]
             # rgb_values[(final_array < dangerous_level) & (final_array > 0)] = [0, 0, 255]
             # rgb_values[final_array == 0] = [255, 255, 255]
+            
+            update_water_levels(final_array)
+
             rgb_values[final_array >= 10] = [11,31,86]
             rgb_values[(final_array < 10) & (final_array >= 1)] = [23,63,172]
             rgb_values[(final_array >= 0.5) & (final_array < 1)] = [64,108,229]
@@ -685,6 +694,8 @@ def final_image_recursion(water_height, elevation_height, list_points, EV_cells,
 
             fig.canvas.draw()
             plt.pause(0.1)  # Adjust the delay as needed
+
+            optimization.find_path()
 
             break
     
@@ -768,7 +779,6 @@ def final_image_recursion(water_height, elevation_height, list_points, EV_cells,
 
 
 def test_final_image_recursion(water_height, elevation_height, list_points, EV_cells, increment_constant, rgb_values, dangerous_level):
-     # list_points is the list of points that the program will run through for simulation every iteration
     final_array = np.zeros([elevation_height.shape[0], elevation_height.shape[1]])
     while list_points.size > 0:
         new_list_points = np.empty((0, 2), dtype=object)
@@ -858,6 +868,12 @@ def test_final_image_recursion(water_height, elevation_height, list_points, EV_c
 
 def get_elevation_height():
     return elevation_height
+
+def get_water_heights():
+    return final_water_heights
+
+def get_bmap():
+    return boundary_map
 
 def test_method(water_height, elevation_height, list_points, EV_cells, increment_constant, rgb_values, dangerous_level, grid_image, fig):
 
