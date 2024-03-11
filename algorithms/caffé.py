@@ -193,6 +193,7 @@ def is_partitioning_action(water_height, elevation_height, x, y, EV_cell):
     left_depth = -1
     up_depth = -1
     down_depth = -1
+    
     if right_neighbor_cell_height != -1:
         right_depth = max(0, this_cell_height + increased_height - right_neighbor_cell_height)
     if left_neighbor_cell_height != -1:
