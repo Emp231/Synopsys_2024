@@ -39,10 +39,8 @@ def find_path():
     
     building_map = test.get_bmap()    
 
-    safezones = np.where(water_levels <= 0.1)
+    safezones = np.where(water_levels < 0.05)
     safezones_coords = list(zip(safezones[0], safezones[1]))
-
-    np.savetxt("elevation_height.txt", building_map, fmt='%d', delimiter=' ', newline='\n')
 
     for end in safezones_coords:
         if building_map[end] == 1:
@@ -58,11 +56,14 @@ def find_path():
             # Unpack the path coordinates and time
             path, time_taken = path_info[0], path_info[1]
             # Update shortest_time and shortest_path if current path has shorter time
+            print(time_taken)
             if time_taken < shortest_t:
                 shortest_t = time_taken
                 shortest_path = path
 
+    print(shortest_t)
     return shortest_path
+
 
 def load_building_data():
     global building_data
@@ -138,7 +139,7 @@ def find_paths(building_map, start, end):
         visited[current_row][current_col] = True
 
         if (current_row, current_col) == end:
-            paths.append((current_path, evac_time))
+            paths.append((current_path, evac_time))    
             evac_time = 0
             continue
 
