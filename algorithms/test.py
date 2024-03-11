@@ -677,7 +677,12 @@ def final_image_recursion(water_height, elevation_height, list_points, EV_cells,
             # rgb_values[final_array == 0] = [255, 255, 255]
             
             update_water_levels(final_array)
+            path = optimization.find_path()
 
+            for coord in path:
+                final_array[coord[0], coord[1]] = -1
+
+            rgb_values[final_array == -1] = [255, 0, 0]
             rgb_values[final_array >= 10] = [11,31,86]
             rgb_values[(final_array < 10) & (final_array >= 1)] = [23,63,172]
             rgb_values[(final_array >= 0.5) & (final_array < 1)] = [64,108,229]
@@ -691,12 +696,8 @@ def final_image_recursion(water_height, elevation_height, list_points, EV_cells,
 
             # Update the grid image with RGBA values
             grid_image.set_array(rgba_values)
-
             fig.canvas.draw()
             plt.pause(0.1)  # Adjust the delay as needed
-
-            optimization.find_path()
-
             break
     
         for point in list_points:
