@@ -5,8 +5,8 @@ import test
 import inputs
 
 
-x = 24
-y = 10
+x = 32
+y = 23
 increment_constant = 1
 dangerous_level = 6 
 elevation_height = inputs.get_elevation_height()
@@ -17,7 +17,7 @@ EV_cells[x,y] = 12
 
 rgb_values = np.full((elevation_height.shape[0], elevation_height.shape[1], 3), 255, dtype=int)
 
-# image_path = 'plesOSM.png'
+image_path = 'plesOSM.png'
 # image = plt.imread(image_path)
 image = inputs.get_image()
 

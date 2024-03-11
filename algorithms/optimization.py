@@ -28,14 +28,14 @@ def find_path():
     start = (32, 23) # change accordingly
     building_map = []
 
-    filepath = "C:/Users/saman/OneDrive/Documents/GitHub/Synopsys_2024/algorithms/plesbuildings.geojson" # specify path to building data
+    #filepath = "C:/Users/saman/OneDrive/Documents/GitHub/Synopsys_2024/algorithms/plesbuildings.geojson" # specify path to building data
 
     elevation = test.get_elevation_height()
     water_levels = test.get_water_heights()
     building_data = []
     evac_time = 0
 
-    load_building_data()
+    #load_building_data()
     
     building_map = test.get_bmap()    
 
