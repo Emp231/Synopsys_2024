@@ -27,8 +27,8 @@ def select_asc_file():
 
     return file_path
 
-#input_asc = "/Users/siddharthbalaji/Documents/Github_Home/Untitled/Synopsys_2024/.asc files/fremont_updated.asc" #input_asc = select_asc_file()
-input_asc = "C:/Users/saman/OneDrive/Documents/GitHub/Synopsys_2024/.asc files/fremont_updated.asc"
+input_asc = "/Users/siddharthbalaji/Documents/Github_Home/Untitled/Synopsys_2024/.asc files/fremont_updated.asc" #input_asc = select_asc_file()
+#input_asc = "C:/Users/saman/OneDrive/Documents/GitHub/Synopsys_2024/.asc files/fremont_updated.asc"
 
 elevation_height = set_elevation_height(input_asc)
 final_water_heights = []
@@ -616,7 +616,7 @@ def final_image_recursion(water_height, elevation_height, list_points, EV_cells,
     final_array = np.zeros([elevation_height.shape[0], elevation_height.shape[1]])
     while list_points.size > 0:
         new_list_points = np.empty((0, 2), dtype=object)
-        if caffé.end_sim(EV_cells, 0.0001):
+        if caffé.end_sim(EV_cells, 0.000000001):
             update_water_levels(final_array)
             path = optimization.find_path(start_x, start_y) 
 
