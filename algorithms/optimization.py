@@ -21,11 +21,11 @@ safezones = []
 safezones_coords = []
 evac_time = 0
 
-def find_path():
+def find_path(x, y):
     all_paths = []
     global normal_speed, start, building_map, filepath, elevation, water_levels, building_data, safezones, safezones_coords, evac_time
     normal_speed = 1.4
-    start = (32, 23) # change accordingly
+    start = (x, y) # change accordingly
     building_map = []
 
     #filepath = "C:/Users/saman/OneDrive/Documents/GitHub/Synopsys_2024/algorithms/plesbuildings.geojson" # specify path to building data
@@ -51,17 +51,12 @@ def find_path():
     shortest_path = []
 
     for path_group in all_paths:
-    # Iterate over each path in the group
         for path_info in path_group:
-            # Unpack the path coordinates and time
             path, time_taken = path_info[0], path_info[1]
-            # Update shortest_time and shortest_path if current path has shorter time
-            print(time_taken)
             if time_taken < shortest_t:
                 shortest_t = time_taken
                 shortest_path = path
 
-    print(shortest_t)
     return shortest_path
 
 

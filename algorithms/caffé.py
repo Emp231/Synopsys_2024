@@ -1,10 +1,9 @@
-# flood starts from [8][4] and is 35 feet
 import numpy as np
 import math
 
 #water_height is EV
 def is_do_nothing(EV_cells, x, y):
-    return EV_cells[x,y] == 0 # EV is not always water height! We need to figure out how to represent EV!
+    return EV_cells[x,y] == 0 
 
 def end_sim(EV_cells, threshold):
     EV_cells_array = np.array(EV_cells)
@@ -52,13 +51,10 @@ def is_ponding_action(water_height, elevation_height, x, y, EV_cell):
 
     valid_neighbor_heights = [height for height in [right_neighbor_cell_height, left_neighbor_cell_height, up_neighbor_cell_height, down_neighbor_cell_height] if height != -1]
 
-        # Check if there are valid neighbor heights
     if valid_neighbor_heights:
         min_val = min(valid_neighbor_heights)
-        # Continue with your code using min_val
     else:
-        # Handle the case where all neighbor heights are -1
-        min_val = None  # or any other suitable default value or handling
+        min_val = None  
 
     difference = min_val - this_cell_height
     if EV_cell[x,y] > difference:
@@ -76,7 +72,6 @@ def is_spreading(water_height, elevation_height, x, y):
     up_neighbor_elevation_height = find_neighbor_elevation_height(x,y,"up", elevation_height)
     down_neighbor_elevation_height = find_neighbor_elevation_height(x,y,"down", elevation_height)
 
-    # makes an array of the neighbors of the central cell that exist with an elevation not equal to -1
     existing_values = [value for value in (right_neighbor_elevation_height, left_neighbor_elevation_height, up_neighbor_elevation_height, down_neighbor_elevation_height) if value != -1]
     
     right_neighbor_cell_height = find_neighbor_cell_height(x,y,"right", water_height, elevation_height)
@@ -149,9 +144,6 @@ def is_increasing_level(water_height, elevation_height, x, y):
         return False
     
 
-
-        
-# precondition is that the water_height of the central cell will always be greater than the increment constant
 def is_increasing_level_action(water_height, elevation_height, x, y, increment_constant, EV_cell):
     equal_neighbors = get_equal_cell_height_neighbors(x,y,water_height, elevation_height)
     if increment_constant > EV_cell[x,y]:
@@ -338,36 +330,6 @@ def get_existing_neighbors(x, y, elevation_height):
         existing_neighbors.append("right")
     
     return existing_neighbors
-
-
-
-# def haversine_distance(lat1, lon1, lat2, lon2):
-#     # Radius of the Earth in kilometers
-#     R = 6371.0
-    
-#     # Convert latitude and longitude from degrees to radians
-#     lat1, lon1, lat2, lon2 = map(math.radians, [lat1, lon1, lat2, lon2])
-    
-#     # Differences in coordinates
-#     dlat = lat2 - lat1
-#     dlon = lon2 - lon1
-    
-#     # Haversine formula
-#     a = math.sin(dlat / 2)**2 + math.cos(lat1) * math.cos(lat2) * math.sin(dlon / 2)**2
-#     c = 2 * math.atan2(math.sqrt(a), math.sqrt(1 - a))
-#     distance = R * c
-    
-#     return distance
-
-# def calc_width(north_lat, south_lat, east_lon, west_lon):
-#     # Calculate distances between corners of the bounding box
-#     width = haversine_distance(north_lat, east_lon, north_lat, west_lon)
-
-#     return width
-
-# def calc_height(north_lat, south_lat, east_lon, west_lon):
-#     height = haversine_distance(north_lat, east_lon, south_lat, east_lon)
-#     return height
 
 def calc_lat_distance(lat1, lat2):
     radius = 6371.0

@@ -18,7 +18,6 @@ EV_cells[x,y] = 12
 rgb_values = np.full((elevation_height.shape[0], elevation_height.shape[1], 3), 255, dtype=int)
 
 image_path = 'plesOSM.png'
-# image = plt.imread(image_path)
 image = inputs.get_image()
 
 grid_width = elevation_height.shape[1]
@@ -27,7 +26,7 @@ fig, ax = plt.subplots()
 
 ax.imshow(image, extent=[0, grid_width, 0, grid_height], origin='upper')
 
-grid = np.full((grid_height, grid_width, 4), [255, 255, 255, 128], dtype=np.uint8)  # Set magenta with transparency (alpha=128)
+grid = np.full((grid_height, grid_width, 4), [255, 255, 255, 128], dtype=np.uint8)  
 grid_image = ax.imshow(grid, extent=[0, grid_width, 0, grid_height], origin='upper')
 
 ax.grid(True, which='both', linestyle='-', linewidth=0.5, color='black')
@@ -46,7 +45,6 @@ list_points = np.append(list_points, [point1], axis=0)
 list_points = np.append(list_points, [point2], axis=0)
 
 final_array = test.final_image_recursion(water_height, elevation_height, np.array([[x,y]]), EV_cells, increment_constant, rgb_values, dangerous_level, grid_image, fig)
-#test.test_method(water_height, elevation_height, np.array([[x, y]]), EV_cells, increment_constant, rgb_values, dangerous_level, grid_image, fig)
 
 plt.axis('off') 
 plt.show()  

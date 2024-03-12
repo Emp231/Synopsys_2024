@@ -9,6 +9,4 @@ with open(input_asc, 'r') as file:
     data = np.loadtxt(file)
 
 print(data)
-# Example usage
-
 
