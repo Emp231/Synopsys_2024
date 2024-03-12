@@ -612,13 +612,13 @@ def test_recursion_checking(water_height, elevation_height, list_points, EV_cell
         new_list_points = np.array(list(temp))
         list_points = new_list_points
 
-def final_image_recursion(water_height, elevation_height, list_points, EV_cells, increment_constant, rgb_values, dangerous_level, grid_image, fig):
+def final_image_recursion(water_height, elevation_height, list_points, EV_cells, increment_constant, rgb_values, dangerous_level, grid_image, fig, start_x, start_y):
     final_array = np.zeros([elevation_height.shape[0], elevation_height.shape[1]])
     while list_points.size > 0:
         new_list_points = np.empty((0, 2), dtype=object)
         if caffé.end_sim(EV_cells, 0.0001):
             update_water_levels(final_array)
-            path = optimization.find_path(32, 23) 
+            path = optimization.find_path(start_x, start_y) 
 
             for coord in path:
                 final_array[coord[0], coord[1]] = -1

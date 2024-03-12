@@ -4,7 +4,7 @@ import matplotlib.image as mpimg
 import test
 import inputs
 
-
+# starting coordinates of flood
 x = 32
 y = 23
 increment_constant = 1
@@ -44,7 +44,7 @@ point2 = [10, 21]
 list_points = np.append(list_points, [point1], axis=0)
 list_points = np.append(list_points, [point2], axis=0)
 
-final_array = test.final_image_recursion(water_height, elevation_height, np.array([[x,y]]), EV_cells, increment_constant, rgb_values, dangerous_level, grid_image, fig)
+final_array = test.final_image_recursion(water_height, elevation_height, np.array([[x,y]]), EV_cells, increment_constant, rgb_values, dangerous_level, grid_image, fig, x, y)
 
 plt.axis('off') 
 plt.show()  
