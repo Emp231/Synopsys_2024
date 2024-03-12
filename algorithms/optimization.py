@@ -104,21 +104,21 @@ def get_neighbors(building_map, visited, row, col):
 
 def calculate_time(diff, water_depth):
     angle = math.degrees(math.atan2(diff, 30))
-    x = 0
-    walk_time = 30 / 1.4
+    total_time = 0
+    walk_time = 30 / normal_speed
 
     if angle > 0:
-        x = walk_time + 0.1 * diff
+        total_time = walk_time + 0.1 * diff
     elif -5 <= angle <= 0:
-        x = walk_time
+        total_time = walk_time
     elif -12 <= angle < -5:
-        x = walk_time - 0.03 * diff
+        total_time = walk_time - 0.03 * diff
     else:
-        x = walk_time + 0.03 * diff
+        total_time = walk_time + 0.03 * diff
 
     walkspeed = 2 - 0.011 * water_depth
-    x += 30 / walkspeed
-    return x
+    total_time += 30 / walkspeed
+    return total_time
 
 
 def find_paths(building_map, start, end):
