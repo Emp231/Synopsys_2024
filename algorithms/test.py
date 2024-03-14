@@ -27,6 +27,7 @@ def select_asc_file():
 
     return file_path
 
+# PATH TO ELEVATION DATA
 input_asc = "/Users/siddharthbalaji/Documents/Github_Home/Untitled/Synopsys_2024/.asc files/fremont_updated.asc" #input_asc = select_asc_file()
 #input_asc = "C:/Users/saman/OneDrive/Documents/GitHub/Synopsys_2024/.asc files/fremont_updated.asc"
 

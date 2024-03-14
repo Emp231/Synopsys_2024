@@ -28,6 +28,7 @@ def find_path(x, y):
     start = (x, y) # change accordingly
     building_map = []
 
+    # PATH TO BUILDING DATA
     #filepath = "C:/Users/saman/OneDrive/Documents/GitHub/Synopsys_2024/algorithms/plesbuildings.geojson" # specify path to building data
 
     elevation = test.get_elevation_height()

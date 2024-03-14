@@ -17,7 +17,7 @@ EV_cells[x,y] = 12
 
 rgb_values = np.full((elevation_height.shape[0], elevation_height.shape[1], 3), 255, dtype=int)
 
-image_path = 'plesOSM.png'
+image_path = 'plesOSM.png' # PATH TO IMAGE TO DISPLAY ON
 image = inputs.get_image()
 
 grid_width = elevation_height.shape[1]
